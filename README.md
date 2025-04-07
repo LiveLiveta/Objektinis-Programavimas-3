@@ -99,3 +99,19 @@
 | 100000          | 0.455858 s      | 0.132958 s       | 0.0530912 s       |
 | 1000000         | 4.73698 s       | 1.63243 s        | 0.424595 s        |
 | 10000000        | 4.99333 s       | 1.27652 s        | 0.339926 s        |
+
+## Failu dydziai:
+
+### su strukturomis
+
+vektoriai.exe : 622KB
+vektoriai_O1.exe : 319KB
+vektoriai_O2.exe : 298KB
+vektoriai_O3.exe : 294KB
+
+### su klasemis
+
+vektoriai.exe : 712KB
+vektoriai_O1.exe : 349KB
+vektoriai_O2.exe : 317KB
+vektoriai_O3.exe : 310KB
