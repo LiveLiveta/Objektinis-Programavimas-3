@@ -1,4 +1,5 @@
 #include "funkcijos.h"
+#include "utils.h"
 
 void Studentas::vidurkio_skaiciavimas(){
     int pazymiu_suma = 0;
@@ -131,34 +132,66 @@ void konteinerio_ir_strategijos_pasirinkimas(){
         cout <<  "Pasirinkite strategija! :  "<< endl;
         cin >> pasirinkimas_strategija;
     }
-    
 
-    if (pasirinkimas_strategija == "1"){
-        if(pasirinkimas_konteineris == "v"){
-            strategija_1<vector<Studentas>>();
-        }else if(pasirinkimas_konteineris == "l"){
-            strategija_1<list<Studentas>>();
-        }if(pasirinkimas_konteineris == "d"){
-            strategija_1<deque<Studentas>>();
-        }
-    }else if (pasirinkimas_strategija == "2"){
-        if(pasirinkimas_konteineris == "v"){
-            strategija_2<vector<Studentas>>();
-        }else if(pasirinkimas_konteineris == "l"){
-            strategija_2<list<Studentas>>();
-        }if(pasirinkimas_konteineris == "d"){
-            strategija_2<deque<Studentas>>();
-        }
-    }else if(pasirinkimas_strategija == "3"){
-        if(pasirinkimas_konteineris == "v"){
-            strategija_3<vector<Studentas>>();
-        }else if(pasirinkimas_konteineris == "l"){
-            strategija_3<list<Studentas>>();
-        }if(pasirinkimas_konteineris == "d"){
-            strategija_3<deque<Studentas>>();
+    vector<string> filesToTest = {
+        "studentai1000.txt",
+        "studentai10000.txt",
+        "studentai100000.txt",
+        "studentai1000000.txt",
+        "studentai1000000.txt"
+    };
+
+    // Initializing test times matrix
+    double** allTestsTimes = new double*[filesToTest.size()];
+    for(int i = 0; i < filesToTest.size(); i++){
+        allTestsTimes[i] = new double[3];
+    }
+
+    for(int i = 0; i < filesToTest.size(); i++){
+        if (pasirinkimas_strategija == "1"){
+            if(pasirinkimas_konteineris == "v"){
+                strategija_1<vector<Studentas>>(allTestsTimes, i);
+            }else if(pasirinkimas_konteineris == "l"){
+                strategija_1<list<Studentas>>(allTestsTimes, i);
+            }if(pasirinkimas_konteineris == "d"){
+                strategija_1<deque<Studentas>>(allTestsTimes, i);
+            }
+        }else if (pasirinkimas_strategija == "2"){
+            if(pasirinkimas_konteineris == "v"){
+                strategija_2<vector<Studentas>>(allTestsTimes, i);
+            }else if(pasirinkimas_konteineris == "l"){
+                strategija_2<list<Studentas>>(allTestsTimes, i);
+            }if(pasirinkimas_konteineris == "d"){
+                strategija_2<deque<Studentas>>(allTestsTimes, i);
+            }
+        }else if(pasirinkimas_strategija == "3"){
+            if(pasirinkimas_konteineris == "v"){
+                strategija_3<vector<Studentas>>(allTestsTimes, i);
+            }else if(pasirinkimas_konteineris == "l"){
+                strategija_3<list<Studentas>>(allTestsTimes, i);
+            }if(pasirinkimas_konteineris == "d"){
+                strategija_3<deque<Studentas>>(allTestsTimes, i);
+            }
         }
     }
 
+    string container = mapContainerTypeToString(pasirinkimas_konteineris);
+    formatReadmeTable(allTestsTimes, filesToTest.size(), 3, stoi(pasirinkimas_strategija), container);
+
+    for (int i = 0; i < filesToTest.size(); i++) {
+        delete[] allTestsTimes[i];
+    }
+    delete[] allTestsTimes;
+}
+
+string mapContainerTypeToString(string containerType){
+    if(containerType == "v"){
+        return "vector";
+    }else if(containerType == "l"){
+        return "list";
+    }else{
+        return "deque";
+    }
 }
 
 void studento_duomenu_gavimas(vector<Studentas>& studentai){
@@ -172,7 +205,9 @@ void studento_duomenu_gavimas(vector<Studentas>& studentai){
             } else if (duomenu_surasymo_pasirinkimas == 3){
                 viskas_generuojama_atsitiktinai();
             } else if (duomenu_surasymo_pasirinkimas == 4){
-                studento_duomenu_skaitymas_is_failo(studentai);
+                // TODO: remove this line
+                double** remove = new double*[2];
+                studento_duomenu_skaitymas_is_failo(studentai, remove, 1);
             } else if (duomenu_surasymo_pasirinkimas == 5){
                 failo_su_studentais_generavimas();
             } else if  (duomenu_surasymo_pasirinkimas == 6){
