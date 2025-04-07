@@ -10,6 +10,9 @@ class Studentas {
         int egzamino_pazymys;
         double vidurkis;
         double  mediana;
+
+        Studentas(string vardas, string pavarde);
+        Studentas();
     
         void vidurkio_skaiciavimas();
         void medianos_skaiciavimas();

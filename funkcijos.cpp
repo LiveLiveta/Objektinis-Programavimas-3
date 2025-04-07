@@ -34,6 +34,13 @@ void Studentas::medianos_skaiciavimas(){
     }
 }
 
+Studentas::Studentas() {}
+
+Studentas::Studentas(string vardas, string pavarde) {
+    vardas = vardas;
+    pavarde = pavarde;
+}
+
 
 void failo_su_studentais_generavimas(){
 
