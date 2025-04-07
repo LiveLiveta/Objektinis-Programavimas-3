@@ -12,6 +12,7 @@ class Studentas {
         double  mediana;
     
         void vidurkio_skaiciavimas();
+        void medianos_skaiciavimas();
 };
 
 extern int studentu_kiekis;
@@ -54,26 +55,9 @@ void viskas_generuojama_atsitiktinai();
 
 
 template <typename konteineris>
-void studento_medianos_skaiciavimas(konteineris &studentai){
+void studentu_medianos_skaiciavimas(konteineris &studentai){
     for (auto it = studentai.begin(); it != studentai.end(); ++it){
-        int pazymiu_kiekis = it->pazymiai.size();
-
-        if (pazymiu_kiekis == 0) {
-            it->mediana = 0.6 * it->egzamino_pazymys;
-        } else { 
-            vector<int> laikini_pazymiai(it->pazymiai.begin(), it->pazymiai.end());
-            sort(laikini_pazymiai.begin(), laikini_pazymiai.end());
-
-            double mediana;
-            if (pazymiu_kiekis % 2 == 0) {
-                mediana = (laikini_pazymiai[pazymiu_kiekis / 2] + laikini_pazymiai[pazymiu_kiekis / 2 - 1]) / 2.0;
-            } else {
-                mediana = laikini_pazymiai[pazymiu_kiekis / 2];
-            }
-
-            double vidurkis = 0.4 * mediana + 0.6 * it->egzamino_pazymys;
-            it->mediana = vidurkis;
-        }
+        it->medianos_skaiciavimas();
     }
 }
 template <typename konteineris>
@@ -195,8 +179,8 @@ void strategija_1(){
 
     studento_vidurkio_skaiciavimas(kietiakiai);
     studento_vidurkio_skaiciavimas(vargsiukai);
-    studento_medianos_skaiciavimas(kietiakiai);
-    studento_medianos_skaiciavimas(vargsiukai);
+    studentu_medianos_skaiciavimas(kietiakiai);
+    studentu_medianos_skaiciavimas(vargsiukai);
     duomenu_surasymas_i_faila(kietiakiai, failo_pavadinimas_kieti);
     duomenu_surasymas_i_faila(vargsiukai, failo_pavadinimas_vargsai);   
 }
@@ -242,8 +226,8 @@ void strategija_2(){
 
     studento_vidurkio_skaiciavimas(visi);
     studento_vidurkio_skaiciavimas(vargsiukai);
-    studento_medianos_skaiciavimas(visi);
-    studento_medianos_skaiciavimas(vargsiukai);
+    studentu_medianos_skaiciavimas(visi);
+    studentu_medianos_skaiciavimas(vargsiukai);
     duomenu_surasymas_i_faila(visi, failo_pavadinimas_kieti);
     duomenu_surasymas_i_faila(vargsiukai, failo_pavadinimas_vargsai);   
 }
@@ -285,8 +269,8 @@ void strategija_3(){
 
     studento_vidurkio_skaiciavimas(kietiakiai);
     studento_vidurkio_skaiciavimas(vargsiukai);
-    studento_medianos_skaiciavimas(kietiakiai);
-    studento_medianos_skaiciavimas(vargsiukai);
+    studentu_medianos_skaiciavimas(kietiakiai);
+    studentu_medianos_skaiciavimas(vargsiukai);
     duomenu_surasymas_i_faila(kietiakiai, failo_pavadinimas_kieti);
     duomenu_surasymas_i_faila(vargsiukai, failo_pavadinimas_vargsai);
 }

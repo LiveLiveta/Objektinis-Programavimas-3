@@ -15,6 +15,26 @@ void Studentas::vidurkio_skaiciavimas(){
     }
 }
 
+void Studentas::medianos_skaiciavimas(){
+    int pazymiu_kiekis = pazymiai.size();
+    
+    if (pazymiu_kiekis == 0) {
+        mediana = 0.6 * egzamino_pazymys;
+    } else { 
+        vector<int> laikini_pazymiai(pazymiai.begin(), pazymiai.end());
+        sort(laikini_pazymiai.begin(), laikini_pazymiai.end());
+    
+        if (pazymiu_kiekis % 2 == 0) {
+            mediana = (laikini_pazymiai[pazymiu_kiekis / 2] + laikini_pazymiai[pazymiu_kiekis / 2 - 1]) / 2.0;
+        } else {
+            mediana = laikini_pazymiai[pazymiu_kiekis / 2];
+        }
+    
+        mediana = 0.4 * mediana + 0.6 * egzamino_pazymys;
+    }
+}
+
+
 void failo_su_studentais_generavimas(){
 
     int failo_generavimo_pasirinkimas;
@@ -209,7 +229,7 @@ void studento_duomenu_printinimas(vector<Studentas> &studentai){
            cin >> failo_pavadinimas;
        }
    }
-   studento_medianos_skaiciavimas(studentai);
+   studentu_medianos_skaiciavimas(studentai);
    studento_vidurkio_skaiciavimas(studentai);
    studento_duomenu_rikiavimas(studentai);
 
