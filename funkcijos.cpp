@@ -41,6 +41,8 @@ Studentas::Studentas(string vardas, string pavarde) {
     pavarde = pavarde;
 }
 
+Studentas::~Studentas() {}
+
 
 void failo_su_studentais_generavimas(){
 

@@ -13,6 +13,7 @@ class Studentas {
 
         Studentas(string vardas, string pavarde);
         Studentas();
+        ~Studentas();
     
         void vidurkio_skaiciavimas();
         void medianos_skaiciavimas();
