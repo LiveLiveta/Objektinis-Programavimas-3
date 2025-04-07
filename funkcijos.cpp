@@ -150,27 +150,27 @@ void konteinerio_ir_strategijos_pasirinkimas(){
     for(int i = 0; i < filesToTest.size(); i++){
         if (pasirinkimas_strategija == "1"){
             if(pasirinkimas_konteineris == "v"){
-                strategija_1<vector<Studentas>>(allTestsTimes, i);
+                strategija_1<vector<Studentas>>(allTestsTimes, i, filesToTest[i]);
             }else if(pasirinkimas_konteineris == "l"){
-                strategija_1<list<Studentas>>(allTestsTimes, i);
+                strategija_1<list<Studentas>>(allTestsTimes, i, filesToTest[i]);
             }if(pasirinkimas_konteineris == "d"){
-                strategija_1<deque<Studentas>>(allTestsTimes, i);
+                strategija_1<deque<Studentas>>(allTestsTimes, i, filesToTest[i]);
             }
         }else if (pasirinkimas_strategija == "2"){
             if(pasirinkimas_konteineris == "v"){
-                strategija_2<vector<Studentas>>(allTestsTimes, i);
+                strategija_2<vector<Studentas>>(allTestsTimes, i, filesToTest[i]);
             }else if(pasirinkimas_konteineris == "l"){
-                strategija_2<list<Studentas>>(allTestsTimes, i);
+                strategija_2<list<Studentas>>(allTestsTimes, i, filesToTest[i]);
             }if(pasirinkimas_konteineris == "d"){
-                strategija_2<deque<Studentas>>(allTestsTimes, i);
+                strategija_2<deque<Studentas>>(allTestsTimes, i, filesToTest[i]);
             }
         }else if(pasirinkimas_strategija == "3"){
             if(pasirinkimas_konteineris == "v"){
-                strategija_3<vector<Studentas>>(allTestsTimes, i);
+                strategija_3<vector<Studentas>>(allTestsTimes, i, filesToTest[i]);
             }else if(pasirinkimas_konteineris == "l"){
-                strategija_3<list<Studentas>>(allTestsTimes, i);
+                strategija_3<list<Studentas>>(allTestsTimes, i, filesToTest[i]);
             }if(pasirinkimas_konteineris == "d"){
-                strategija_3<deque<Studentas>>(allTestsTimes, i);
+                strategija_3<deque<Studentas>>(allTestsTimes, i, filesToTest[i]);
             }
         }
     }
@@ -207,7 +207,7 @@ void studento_duomenu_gavimas(vector<Studentas>& studentai){
             } else if (duomenu_surasymo_pasirinkimas == 4){
                 // TODO: remove this line
                 double** remove = new double*[2];
-                studento_duomenu_skaitymas_is_failo(studentai, remove, 1);
+                studento_duomenu_skaitymas_is_failo(studentai, remove, 1, "");
             } else if (duomenu_surasymo_pasirinkimas == 5){
                 failo_su_studentais_generavimas();
             } else if  (duomenu_surasymo_pasirinkimas == 6){

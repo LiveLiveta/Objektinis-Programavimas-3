@@ -123,10 +123,10 @@ void studento_duomenu_is_failo_susirasymas(konteineris&studentai, string& failo_
  }
 
 template <typename konteineris>
-void studento_duomenu_skaitymas_is_failo(konteineris& studentai, double** allTestsTimes, int testIndex){
-    string failo_pavadinimas;
-    cout << "Iveskite norimo nuskaityti failo pavadinima: " << endl;
-    cin >> failo_pavadinimas;
+void studento_duomenu_skaitymas_is_failo(konteineris& studentai, double** allTestsTimes, int testIndex, string failo_pavadinimas){
+    // string failo_pavadinimas;
+    // cout << "Iveskite norimo nuskaityti failo pavadinima: " << endl;
+    // cin >> failo_pavadinimas;
  
      while (true){
          try{
@@ -143,13 +143,13 @@ void studento_duomenu_skaitymas_is_failo(konteineris& studentai, double** allTes
  }
 
 template <typename konteineris>
-void strategija_1(double** allTestsTimes, int testIndex){
+void strategija_1(double** allTestsTimes, int testIndex, string failo_pavadinimas){
     
     konteineris visi;
     konteineris vargsiukai;
     konteineris kietiakiai;
 
-    studento_duomenu_skaitymas_is_failo(visi, allTestsTimes, testIndex);
+    studento_duomenu_skaitymas_is_failo(visi, allTestsTimes, testIndex, failo_pavadinimas);
     studento_vidurkio_skaiciavimas(visi);
 
     auto rikiavimo_pradzia = std::chrono::high_resolution_clock::now();
@@ -194,12 +194,12 @@ void strategija_1(double** allTestsTimes, int testIndex){
 }
 
 template <typename konteineris>
-void strategija_2(double** allTestsTimes, int testIndex){
+void strategija_2(double** allTestsTimes, int testIndex, string failo_pavadinimas){
     
     konteineris visi;
     konteineris vargsiukai;
 
-    studento_duomenu_skaitymas_is_failo(visi, allTestsTimes, testIndex);
+    studento_duomenu_skaitymas_is_failo(visi, allTestsTimes, testIndex, failo_pavadinimas);
     studento_vidurkio_skaiciavimas(visi);
 
     auto rikiavimo_pradzia = std::chrono::high_resolution_clock::now();
@@ -243,10 +243,10 @@ void strategija_2(double** allTestsTimes, int testIndex){
 }
 
 template <typename konteineris>
-void strategija_3(double** allTestsTimes, int testIndex){
+void strategija_3(double** allTestsTimes, int testIndex, string failo_pavadinimas){
     
     konteineris visi;
-    studento_duomenu_skaitymas_is_failo(visi, allTestsTimes, testIndex);
+    studento_duomenu_skaitymas_is_failo(visi, allTestsTimes, testIndex, failo_pavadinimas);
     studento_vidurkio_skaiciavimas(visi);
 
     auto rikiavimo_pradzia = std::chrono::high_resolution_clock::now();
