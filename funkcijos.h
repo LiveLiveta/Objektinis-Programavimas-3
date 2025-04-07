@@ -2,13 +2,16 @@
 #ifndef FUNKCIJOS_H
 #define FUNKCIJOS_H
 
-struct Studentas {
-    string pavarde;
-    string vardas;
-    vector<int> pazymiai;
-    int egzamino_pazymys;
-    double vidurkis;
-    double  mediana;
+class Studentas {
+    public:
+        string pavarde;
+        string vardas;
+        vector<int> pazymiai;
+        int egzamino_pazymys;
+        double vidurkis;
+        double  mediana;
+    
+        void vidurkio_skaiciavimas();
 };
 
 extern int studentu_kiekis;
@@ -94,19 +97,7 @@ template <typename konteineris>
 void studento_vidurkio_skaiciavimas(konteineris &studentai){
 
     for (auto iteratorius = studentai.begin(); iteratorius != studentai.end(); ++iteratorius) { 
-        int pazymiu_suma = 0;
-        int pazymiu_kiekis = iteratorius->pazymiai.size();
-    
-        if (pazymiu_kiekis == 0){
-             iteratorius->vidurkis = 0.6 * iteratorius->egzamino_pazymys;
-        } else{ 
-            for (int j = 0; j < pazymiu_kiekis; j++){
-              pazymiu_suma += iteratorius->pazymiai[j];
-            }
-            double pazymiu_vidurkis = pazymiu_suma * 1.0 / pazymiu_kiekis;
-            double vidurkis = 0.4 * pazymiu_vidurkis + 0.6 * iteratorius->egzamino_pazymys;
-            iteratorius->vidurkis = vidurkis;
-        }
+        iteratorius->vidurkio_skaiciavimas();
     }
  }
 

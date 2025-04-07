@@ -1,5 +1,20 @@
 #include "funkcijos.h"
 
+void Studentas::vidurkio_skaiciavimas(){
+    int pazymiu_suma = 0;
+    int pazymiu_kiekis = pazymiai.size();
+
+    if (pazymiu_kiekis == 0){
+         vidurkis = 0.6 * egzamino_pazymys;
+    } else{ 
+        for (int j = 0; j < pazymiu_kiekis; j++){
+          pazymiu_suma += pazymiai[j];
+        }
+        double pazymiu_vidurkis = pazymiu_suma * 1.0 / pazymiu_kiekis;
+        vidurkis = 0.4 * pazymiu_vidurkis + 0.6 * egzamino_pazymys;
+    }
+}
+
 void failo_su_studentais_generavimas(){
 
     int failo_generavimo_pasirinkimas;
