@@ -18,7 +18,7 @@ class Studentas {
         Studentas& operator=(Studentas&& originalas) noexcept;
         Studentas();
         ~Studentas();
-    
+        friend ostream& operator<<(ostream& isvesties_vieta, const Studentas& studentas);
         void vidurkio_skaiciavimas();
         void medianos_skaiciavimas();
 };

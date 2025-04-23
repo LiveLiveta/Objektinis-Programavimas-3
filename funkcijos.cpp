@@ -86,7 +86,16 @@ Studentas& Studentas::operator=(Studentas&& originalas) noexcept {
     return *this;
 }
 
-
+ostream& operator<<(ostream& isvesties_vieta, const Studentas& studentas) {
+    isvesties_vieta << studentas.vardas << " " << studentas.pavarde << " | Pazymiai: ";
+    for (int pazimys : studentas.pazymiai) {
+        isvesties_vieta << pazimys << " ";
+    }
+    isvesties_vieta << "| Egzaminas: " << studentas.egzamino_pazymys;
+    isvesties_vieta << " | Vidurkis: " << studentas.vidurkis;
+    isvesties_vieta << " | Mediana: " << studentas.mediana;
+    return isvesties_vieta;
+}
 
 Studentas::Studentas(string vardas, string pavarde) {
     vardas = vardas;
