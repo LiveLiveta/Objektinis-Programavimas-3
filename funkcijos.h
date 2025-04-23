@@ -19,6 +19,7 @@ class Studentas {
         Studentas();
         ~Studentas();
         friend ostream& operator<<(ostream& isvesties_vieta, const Studentas& studentas);
+        friend istream& operator>>(istream& isvesties_vieta, Studentas& studentas);
         void vidurkio_skaiciavimas();
         void medianos_skaiciavimas();
 };

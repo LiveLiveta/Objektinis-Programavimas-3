@@ -97,6 +97,34 @@ ostream& operator<<(ostream& isvesties_vieta, const Studentas& studentas) {
     return isvesties_vieta;
 }
 
+istream& operator>>(istream& isvesties_vieta, Studentas& studentas) {
+    cout << "Iveskite varda: ";
+    isvesties_vieta >> studentas.vardas;
+
+    cout << "Iveskite pavarde: ";
+    isvesties_vieta >> studentas.pavarde;
+
+    cout << "Iveskite pazymiu kieki: ";
+    int kiekis;
+    isvesties_vieta >> kiekis;
+
+    studentas.pazymiai.clear();
+    cout << "Iveskite pazymius: ";
+    for (int i = 0; i < kiekis; ++i) {
+        int pazymys;
+        isvesties_vieta >> pazymys;
+        studentas.pazymiai.push_back(pazymys);
+    }
+
+    cout << "Iveskite egzamino pazymi: ";
+    isvesties_vieta >> studentas.egzamino_pazymys;
+
+    studentas.vidurkio_skaiciavimas();
+    studentas.medianos_skaiciavimas();
+
+    return isvesties_vieta;
+}
+
 Studentas::Studentas(string vardas, string pavarde) {
     vardas = vardas;
     pavarde = pavarde;
