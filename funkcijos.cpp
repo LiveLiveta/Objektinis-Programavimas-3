@@ -45,6 +45,18 @@ Studentas::Studentas(const Studentas& originalas){
     mediana = originalas.mediana;
 }
 
+Studentas& Studentas::operator=(const Studentas& originalas){
+    if (this != &originalas) { // tikrinam ar nepriskiriam sau pačiam
+        pavarde = originalas.pavarde;
+        vardas = originalas.vardas;
+        pazymiai = originalas.pazymiai;
+        egzamino_pazymys = originalas.egzamino_pazymys;
+        vidurkis = originalas.vidurkis;
+        mediana = originalas.mediana;
+    }
+    return *this;
+}
+
 Studentas::Studentas(string vardas, string pavarde) {
     vardas = vardas;
     pavarde = pavarde;

@@ -13,6 +13,7 @@ class Studentas {
 
         Studentas(string vardas, string pavarde);
         Studentas(const Studentas& originalas);
+        Studentas& operator=(const Studentas& originalas);
         Studentas();
         ~Studentas();
     
