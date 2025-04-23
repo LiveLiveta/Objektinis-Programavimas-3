@@ -51,3 +51,4 @@ using std:: to_string;
 using std:: list;
 using std:: deque;
 using std:: is_same_v;
+using std:: move;

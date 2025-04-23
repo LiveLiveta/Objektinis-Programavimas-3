@@ -57,6 +57,23 @@ Studentas& Studentas::operator=(const Studentas& originalas){
     return *this;
 }
 
+Studentas& Studentas::operator=(Studentas&& originalas) noexcept {
+    if (this != &originalas) {
+        pavarde = move(originalas.pavarde);
+        vardas = move(originalas.vardas);
+        pazymiai = move(originalas.pazymiai);
+        egzamino_pazymys = originalas.egzamino_pazymys;
+        vidurkis = originalas.vidurkis;
+        mediana = originalas.mediana;
+
+        // Išvalom originalą (pasirinktinai, bet saugiai)
+        originalas.egzamino_pazymys = 0;
+        originalas.vidurkis = 0;
+        originalas.mediana = 0;
+    }
+    return *this;
+}
+
 Studentas::Studentas(string vardas, string pavarde) {
     vardas = vardas;
     pavarde = pavarde;
