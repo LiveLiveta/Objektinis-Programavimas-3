@@ -36,6 +36,15 @@ void Studentas::medianos_skaiciavimas(){
 
 Studentas::Studentas() {}
 
+Studentas::Studentas(const Studentas& originalas){
+    pavarde = originalas.pavarde;
+    vardas = originalas.vardas;
+    pazymiai = originalas.pazymiai;
+    egzamino_pazymys = originalas.egzamino_pazymys;
+    vidurkis = originalas.vidurkis;
+    mediana = originalas.mediana;
+}
+
 Studentas::Studentas(string vardas, string pavarde) {
     vardas = vardas;
     pavarde = pavarde;

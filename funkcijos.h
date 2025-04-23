@@ -12,6 +12,7 @@ class Studentas {
         double  mediana;
 
         Studentas(string vardas, string pavarde);
+        Studentas(const Studentas& originalas);
         Studentas();
         ~Studentas();
     
