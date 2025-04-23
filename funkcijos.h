@@ -90,7 +90,7 @@ void studento_vidurkio_skaiciavimas(konteineris &studentai){
  }
 
 template <typename konteineris>
-void studento_duomenu_is_failo_susirasymas(konteineris&studentai, string& failo_pavadinimas, double** allTestsTimes, int testIndex){
+void studento_duomenu_is_failo_susirasymas(konteineris&studentai, string& failo_pavadinimas){
     auto pradzia = std::chrono::high_resolution_clock::now();
  
     ifstream failas(failo_pavadinimas);
@@ -118,15 +118,13 @@ void studento_duomenu_is_failo_susirasymas(konteineris&studentai, string& failo_
     cout << endl << "duomenu is failo nuskaitymas uztruko: " << trukme.count() << " s" << endl;
     operaciju_laikai.push_back(trukme.count());
     failas.close();
-
-    allTestsTimes[testIndex][0] = trukme.count();
  }
 
 template <typename konteineris>
-void studento_duomenu_skaitymas_is_failo(konteineris& studentai, double** allTestsTimes, int testIndex, string failo_pavadinimas){
-    // string failo_pavadinimas;
-    // cout << "Iveskite norimo nuskaityti failo pavadinima: " << endl;
-    // cin >> failo_pavadinimas;
+void studento_duomenu_skaitymas_is_failo(konteineris& studentai){
+    string failo_pavadinimas;
+    cout << "Iveskite norimo nuskaityti failo pavadinima: " << endl;
+    cin >> failo_pavadinimas;
  
      while (true){
          try{
@@ -138,18 +136,18 @@ void studento_duomenu_skaitymas_is_failo(konteineris& studentai, double** allTes
          }
      }
     cout << "Failas atidarytas sekmingai!" << endl;
-    studento_duomenu_is_failo_susirasymas(studentai, failo_pavadinimas, allTestsTimes, testIndex);
+    studento_duomenu_is_failo_susirasymas(studentai, failo_pavadinimas);
  
  }
 
 template <typename konteineris>
-void strategija_1(double** allTestsTimes, int testIndex, string failo_pavadinimas){
+void strategija_1(){
     
     konteineris visi;
     konteineris vargsiukai;
     konteineris kietiakiai;
 
-    studento_duomenu_skaitymas_is_failo(visi, allTestsTimes, testIndex, failo_pavadinimas);
+    studento_duomenu_skaitymas_is_failo(visi);
     studento_vidurkio_skaiciavimas(visi);
 
     auto rikiavimo_pradzia = std::chrono::high_resolution_clock::now();
@@ -163,7 +161,6 @@ void strategija_1(double** allTestsTimes, int testIndex, string failo_pavadinima
     auto rikiavimo_pabaiga = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> rikiavimo_trukme = rikiavimo_pabaiga - rikiavimo_pradzia;
     cout << endl << "Duomenu rikiavimas nuo didziausio vidurkio iki maziausio uztruko: " << rikiavimo_trukme.count() << " s" << endl;
-    allTestsTimes[testIndex][1] = rikiavimo_trukme.count();
 
     auto isskirstymo_pradzia = std::chrono::high_resolution_clock::now();
 
@@ -178,8 +175,6 @@ void strategija_1(double** allTestsTimes, int testIndex, string failo_pavadinima
     auto isskirstymo_pabaiga = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> isskirstymo_trukme = isskirstymo_pabaiga - isskirstymo_pradzia;
     cout << endl << "Duomenu isskirstymas i kietiakus ir vargsiukus uztruko: " << isskirstymo_trukme.count() << " s" << endl;
-    allTestsTimes[testIndex][2] = isskirstymo_trukme.count();
-
 
     string failo_pavadinimo_pabaiga = ".txt";
     string failo_pavadinimas_kieti = "kietiakiai" + to_string(kietiakiai.size()) + failo_pavadinimo_pabaiga;
@@ -194,12 +189,12 @@ void strategija_1(double** allTestsTimes, int testIndex, string failo_pavadinima
 }
 
 template <typename konteineris>
-void strategija_2(double** allTestsTimes, int testIndex, string failo_pavadinimas){
+void strategija_2(){
     
     konteineris visi;
     konteineris vargsiukai;
 
-    studento_duomenu_skaitymas_is_failo(visi, allTestsTimes, testIndex, failo_pavadinimas);
+    studento_duomenu_skaitymas_is_failo(visi);
     studento_vidurkio_skaiciavimas(visi);
 
     auto rikiavimo_pradzia = std::chrono::high_resolution_clock::now();
@@ -213,7 +208,6 @@ void strategija_2(double** allTestsTimes, int testIndex, string failo_pavadinima
     auto rikiavimo_pabaiga = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> rikiavimo_trukme = rikiavimo_pabaiga - rikiavimo_pradzia;
     cout << endl << "Duomenu rikiavimas nuo didziausio vidurkio iki maziausio uztruko: " << rikiavimo_trukme.count() << " s" << endl;
-    allTestsTimes[testIndex][1] = rikiavimo_trukme.count();
 
     auto isskirstymo_pradzia = std::chrono::high_resolution_clock::now();
 
@@ -227,8 +221,6 @@ void strategija_2(double** allTestsTimes, int testIndex, string failo_pavadinima
     auto isskirstymo_pabaiga = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> isskirstymo_trukme = isskirstymo_pabaiga - isskirstymo_pradzia;
     cout << endl << "Duomenu isskirstymas i kietiakus ir vargsiukus uztruko: " << isskirstymo_trukme.count() << " s" << endl;
-    allTestsTimes[testIndex][2] = isskirstymo_trukme.count();
-
 
     string failo_pavadinimo_pabaiga = ".txt";
     string failo_pavadinimas_kieti = "kietiakiai" + to_string(visi.size()) + failo_pavadinimo_pabaiga;
@@ -243,10 +235,10 @@ void strategija_2(double** allTestsTimes, int testIndex, string failo_pavadinima
 }
 
 template <typename konteineris>
-void strategija_3(double** allTestsTimes, int testIndex, string failo_pavadinimas){
+void strategija_3(){
     
     konteineris visi;
-    studento_duomenu_skaitymas_is_failo(visi, allTestsTimes, testIndex, failo_pavadinimas);
+    studento_duomenu_skaitymas_is_failo(visi);
     studento_vidurkio_skaiciavimas(visi);
 
     auto rikiavimo_pradzia = std::chrono::high_resolution_clock::now();
@@ -258,8 +250,7 @@ void strategija_3(double** allTestsTimes, int testIndex, string failo_pavadinima
     auto rikiavimo_pabaiga = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> rikiavimo_trukme = rikiavimo_pabaiga - rikiavimo_pradzia;
     cout << "\nDuomenu rikiavimas nuo didziausio vidurkio iki maziausio uztruko: " << rikiavimo_trukme.count() << " s" << endl;
-    allTestsTimes[testIndex][1] = rikiavimo_trukme.count();
-
+   
     auto isskirstymo_pradzia = std::chrono::high_resolution_clock::now();
     
     // Partitioning students into two groups using stable_partition
@@ -273,7 +264,6 @@ void strategija_3(double** allTestsTimes, int testIndex, string failo_pavadinima
     auto isskirstymo_pabaiga = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> isskirstymo_trukme = isskirstymo_pabaiga - isskirstymo_pradzia;
     cout << "\nDuomenu isskirstymas i kietiakus ir vargsiukus uztruko: " << isskirstymo_trukme.count() << " s" << endl;
-    allTestsTimes[testIndex][2] = isskirstymo_trukme.count();
 
     string failo_pavadinimo_pabaiga = ".txt";
     string failo_pavadinimas_kieti = "kietiakiai" + to_string(kietiakiai.size()) + failo_pavadinimo_pabaiga;
@@ -286,7 +276,5 @@ void strategija_3(double** allTestsTimes, int testIndex, string failo_pavadinima
     duomenu_surasymas_i_faila(kietiakiai, failo_pavadinimas_kieti);
     duomenu_surasymas_i_faila(vargsiukai, failo_pavadinimas_vargsai);
 }
-
-string mapContainerTypeToString(string containerType);
 
 #endif
