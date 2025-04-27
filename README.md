@@ -368,3 +368,10 @@ class Zmogus{
         virtual ~Zmogus() = default;
 };
 ```
+
+### Komentaras apie implementaciją:
+
+- `prisistatymas()` yra **grynas virtualus metodas** (`= 0`), kuris reiškia, kad **kiekviena paveldinti klasė** privalo įgyvendinti savo prisistatymo logiką.
+- `virtual ~Zmogus() = default;` garantuoja, kad sunaikinant išvestinės klasės objektą bus teisingai kviečiamas destruktorius.
+
+Ši bazinė struktūra yra kaip pagrindas, leidžiantis kurti ivairias `Zmogus` klases, tokias kaip `Studentas`, `Darbuotojas` ir pan., priversdama jas implementuoti savo `prisistatymas()` metodo.
