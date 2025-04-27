@@ -12,6 +12,7 @@ void Studentas::vidurkio_skaiciavimas(){
         }
         double pazymiu_vidurkis = pazymiu_suma * 1.0 / pazymiu_kiekis;
         vidurkis = 0.4 * pazymiu_vidurkis + 0.6 * egzamino_pazymys;
+        vidurkis = round(vidurkis * 100) / 100;
     }
 }
 
@@ -35,6 +36,12 @@ void Studentas::medianos_skaiciavimas(){
 }
 
 Studentas::Studentas() {}
+Studentas::Studentas(string vardass, string pavardee, vector<int> pazymiaii, int egzamino_pazymyss) {
+    vardas = vardass;
+    pavarde = pavardee;
+    pazymiai = pazymiaii;
+    egzamino_pazymys = egzamino_pazymyss;
+}
 
 Studentas::Studentas(const Studentas& originalas){
     pavarde = originalas.pavarde;
@@ -123,11 +130,6 @@ istream& operator>>(istream& isvesties_vieta, Studentas& studentas) {
     studentas.medianos_skaiciavimas();
 
     return isvesties_vieta;
-}
-
-Studentas::Studentas(string vardas, string pavarde) {
-    vardas = vardas;
-    pavarde = pavarde;
 }
 
 Studentas::~Studentas() {

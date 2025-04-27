@@ -115,3 +115,238 @@ vektoriai.exe : 712KB
 vektoriai_O1.exe : 349KB
 vektoriai_O2.exe : 317KB
 vektoriai_O3.exe : 310KB
+
+# "Rule of Five"
+
+**Kas yra "Rule of Five"?**  
+C++ kalboje, jei klasė valdo išteklius (pvz., dinaminę atmintį, failus ar pan.), reikia apibrėžti penkis specialius metodus:
+
+1. Destruktorius
+2. Kopijavimo konstruktorius
+3. Kopijavimo priskyrimo operatorius
+4. Perkėlimo konstruktorius
+5. Perkėlimo priskyrimo operatorius
+
+---
+
+## Kiekvieno metodo paaiškinimas
+
+### 1. Destruktorius
+
+**Paskirtis:**
+
+- Atlaisvina išteklius, kai objektas sunaikinamas.
+
+**Pavyzdys:**
+
+```cpp
+Studentas::~Studentas() {
+    vardas.clear();
+    pavarde.clear();
+    pazymiai.clear();
+}
+```
+
+---
+
+### 2. Kopijavimo konstruktorius
+
+**Paskirtis:**
+
+- Sukuria naują objektą kaip tikslią kito objekto kopiją.
+
+**Panaudojimas:**
+
+- Naudojamas, kai reikia nukopijuoti objektą, kad būtų sukurtas nepriklausomas jo dublikatas.
+
+**Pavyzdys:**
+
+```cpp
+Studentas::Studentas(const Studentas& originalas) {
+    pavarde = originalas.pavarde;
+    vardas = originalas.vardas;
+    pazymiai = originalas.pazymiai;
+    egzamino_pazymys = originalas.egzamino_pazymys;
+    vidurkis = originalas.vidurkis;
+    mediana = originalas.mediana;
+}
+```
+
+---
+
+### 3. Kopijavimo priskyrimo operatorius
+
+**Paskirtis:**
+
+- Pakeičia esamo objekto turinį kitu objektu.
+
+**Panaudojimas:**
+
+- `a = b;` kai abu objektai jau egzistuoja.
+
+**Pavyzdys:**
+
+```cpp
+Studentas& Studentas::operator=(const Studentas& originalas) {
+    if (this != &originalas) {
+        pavarde = originalas.pavarde;
+        vardas = originalas.vardas;
+        pazymiai = originalas.pazymiai;
+        egzamino_pazymys = originalas.egzamino_pazymys;
+        vidurkis = originalas.vidurkis;
+        mediana = originalas.mediana;
+    }
+    return *this;
+}
+```
+
+---
+
+### 4. Perkėlimo konstruktorius
+
+**Paskirtis:**
+
+- Sukuria naują objektą, "pavogdamas" išteklius iš kito objekto.
+
+**Panaudojimas:**
+
+- Efektyvus darbas su laikinais objektais.
+
+**Pavyzdys:**
+
+```cpp
+Studentas::Studentas(Studentas&& originalas) noexcept {
+    pavarde = move(originalas.pavarde);
+    vardas = move(originalas.vardas);
+    pazymiai = move(originalas.pazymiai);
+    egzamino_pazymys = originalas.egzamino_pazymys;
+    vidurkis = originalas.vidurkis;
+    mediana = originalas.mediana;
+
+    originalas.egzamino_pazymys = 0;
+    originalas.vidurkis = 0;
+    originalas.mediana = 0;
+}
+```
+
+---
+
+### 5. Perkėlimo priskyrimo operatorius
+
+**Paskirtis:**
+
+- Pakeičia objekto turinį, "pavogdamas" iš kito objekto išteklius.
+
+**Panaudojimas:**
+
+- `a = move(b);`
+
+**Pavyzdys:**
+
+```cpp
+Studentas& Studentas::operator=(Studentas&& originalas) noexcept {
+    if (this != &originalas) {
+        pavarde = move(originalas.pavarde);
+        vardas = move(originalas.vardas);
+        pazymiai = move(originalas.pazymiai);
+        egzamino_pazymys = originalas.egzamino_pazymys;
+        vidurkis = originalas.vidurkis;
+        mediana = originalas.mediana;
+
+        originalas.egzamino_pazymys = 0;
+        originalas.vidurkis = 0;
+        originalas.mediana = 0;
+    }
+    return *this;
+}
+```
+
+---
+
+# Operatorių perdengimas (<< ir >>)
+
+## 👇 Kas tai yra?
+
+Operatorių perdengimas leidžia nustatyti, kaip objektai yra skaitomi iš srauto (`>>`) ir spausdinami į srautą (`<<`).
+Tai leidžia naudoti paprastą sintaksę kaip `cout << objektas;` arba `cin >> objektas;`.
+
+---
+
+## Perdengimų paaiškinimai
+
+### 1. Įvesties operatorius `>>`
+
+**Paskirtis:**
+
+- Nuskaito `Studentas` objekto duomenis iš vartotojo arba failo.
+
+**Pavyzdys:**
+
+```cpp
+istream& operator>>(istream& isvesties_vieta, Studentas& studentas) {
+    cout << "Įveskite vardą: ";
+    isvesties_vieta >> studentas.vardas;
+
+    cout << "Įveskite pavardę: ";
+    isvesties_vieta >> studentas.pavarde;
+
+    cout << "Įveskite pažymių kiekį: ";
+    int kiekis;
+    isvesties_vieta >> kiekis;
+
+    studentas.pazymiai.clear();
+    cout << "Įveskite pažymius: ";
+    for (int i = 0; i < kiekis; ++i) {
+        int pazymys;
+        isvesties_vieta >> pazymys;
+        studentas.pazymiai.push_back(pazymys);
+    }
+
+    cout << "Įveskite egzamino pažymį: ";
+    isvesties_vieta >> studentas.egzamino_pazymys;
+
+    studentas.vidurkio_skaiciavimas();
+    studentas.medianos_skaiciavimas();
+
+    return isvesties_vieta;
+}
+```
+
+---
+
+### 2. Išvesties operatorius `<<`
+
+**Paskirtis:**
+
+- Išveda `Studentas` objekto duomenis į ekraną arba failą.
+
+**Pavyzdys:**
+
+```cpp
+ostream& operator<<(ostream& isvesties_vieta, const Studentas& studentas) {
+    isvesties_vieta << studentas.vardas << " " << studentas.pavarde << " | Pažymiai: ";
+    for (int pazymys : studentas.pazymiai) {
+        isvesties_vieta << pazymys << " ";
+    }
+    isvesties_vieta << "| Egzaminas: " << studentas.egzamino_pazymys;
+    isvesties_vieta << " | Vidurkis: " << studentas.vidurkis;
+    isvesties_vieta << " | Mediana: " << studentas.mediana;
+    return isvesties_vieta;
+}
+```
+
+---
+
+# Santrauka
+
+| Koncepcija                 | Paskirtis                                | Pavyzdys               |
+| :------------------------- | :--------------------------------------- | :--------------------- |
+| Destruktorius              | Atlaisvina išteklius sunaikinant objektą | ~Studentas()           |
+| Kopijavimo konstruktorius  | Sukuria naują kopiją                     | Studentas b = a;       |
+| Kopijavimo priskyrimas     | Pakeičia objekto turinį kitu             | b = a;                 |
+| Perkėlimo konstruktorius   | Pavogia išteklius iš kito objekto        | Studentas b = move(a); |
+| Perkėlimo priskyrimas      | Pavogia išteklius per priskyrimą         | b = move(a);           |
+| Išvesties operatorius `<<` | Išveda objektą į ekraną arba failą       | cout << studentas;     |
+| Įvesties operatorius `>>`  | Nuskaityti objektą iš vartotojo ar failo | cin >> studentas;      |
+
+---

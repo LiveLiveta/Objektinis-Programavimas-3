@@ -11,7 +11,7 @@ class Studentas {
         double vidurkis;
         double  mediana;
 
-        Studentas(string vardas, string pavarde);
+        Studentas(string vardass, string pavardee, vector<int> pazymiaii, int egzamino_pazymyss);
         Studentas(const Studentas& originalas);
         Studentas& operator=(const Studentas& originalas);
         Studentas(Studentas&& originalas) noexcept;
