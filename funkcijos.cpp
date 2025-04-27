@@ -35,6 +35,10 @@ void Studentas::medianos_skaiciavimas(){
     }
 }
 
+void Studentas::prisistatymas(){
+    cout << "Mano vardas " << vardas << "Ir ji sudaro " << vardas.length() << "raides." << endl;
+}
+
 Studentas::Studentas() {}
 Studentas::Studentas(string vardass, string pavardee, vector<int> pazymiaii, int egzamino_pazymyss) {
     vardas = vardass;
