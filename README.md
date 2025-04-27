@@ -358,3 +358,13 @@ ostream& operator<<(ostream& isvesties_vieta, const Studentas& studentas) {
 Abstrakti klasė yra tokia klasė, kuri aprašo bendras sąvokas ir turi bent vieną abstraktų metodą (be implementacijos). Tokia klasė negali būti sukuriama tiesiogiai, ji naudojama kaip bazė kitoms klasėms paveldėti ir konkretizuoti elgesį.
 
 Abstrakčios klasės tikslas - apibrėžti, kokias funkcijas turi įgyvendinti paveldėtos klasės, paliekant realizacijos detales joms pačioms.
+
+## Dabartinė `Zmogus` klasės implementacija
+
+```cpp
+class Zmogus{
+    public:
+        virtual void prisistatymas() = 0;
+        virtual ~Zmogus() = default;
+};
+```
