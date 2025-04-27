@@ -2,7 +2,13 @@
 #ifndef FUNKCIJOS_H
 #define FUNKCIJOS_H
 
-class Studentas {
+class Zmogus{
+    public:
+        virtual void prisistatymas() = 0; 
+        virtual ~Zmogus() = default;
+};
+
+class Studentas : public Zmogus{
     public:
         string pavarde;
         string vardas;
@@ -20,6 +26,7 @@ class Studentas {
         ~Studentas();
         friend ostream& operator<<(ostream& isvesties_vieta, const Studentas& studentas);
         friend istream& operator>>(istream& isvesties_vieta, Studentas& studentas);
+        void prisistatymas() override;
         void vidurkio_skaiciavimas();
         void medianos_skaiciavimas();
 };
