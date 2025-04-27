@@ -350,3 +350,11 @@ ostream& operator<<(ostream& isvesties_vieta, const Studentas& studentas) {
 | Įvesties operatorius `>>`  | Nuskaityti objektą iš vartotojo ar failo | cin >> studentas;      |
 
 ---
+
+# Abstrakčios klasės
+
+## Kas yra abstrakti klasė?
+
+Abstrakti klasė yra tokia klasė, kuri aprašo bendras sąvokas ir turi bent vieną abstraktų metodą (be implementacijos). Tokia klasė negali būti sukuriama tiesiogiai, ji naudojama kaip bazė kitoms klasėms paveldėti ir konkretizuoti elgesį.
+
+Abstrakčios klasės tikslas - apibrėžti, kokias funkcijas turi įgyvendinti paveldėtos klasės, paliekant realizacijos detales joms pačioms.
