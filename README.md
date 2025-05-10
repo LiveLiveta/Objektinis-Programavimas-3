@@ -3,6 +3,71 @@
 1. Naudodami git, galite klonuoti si projekta su komanda `git clone https://github.com/LiveLiveta/Objektinis-Programavimas.git`
 2. Sukurkite projekto .exe faila, paleisdami `make` komanda projekto direktorijoje
 3. Paleiskite projekta, paleisdami `./vektoriai` komanda
+4. Jei norite paleisti testus, pirmiausia įvykdykite komandą „make unittestai“, o po to paleiskite „./testai“.
+
+# Naudojimo instrukcija
+
+Ši programa yra paprasta naudoti – ją paleidus, vartotojui pateikiami pasirinkimai, kuriuos reikia įvesti rankiniu būdu pagal poreikį. Programa skirta darbui su studentų duomenimis: jų įvedimu, skaitymu iš failo, apdorojimu, rūšiavimu, skirstymu ir rezultatų išvedimu.
+
+## Pagrindiniai naudojimo žingsniai
+
+### 1. Paleiskite programą
+
+Žiūrėti į projekto paleidimo instrukcija 2-3 punktai.
+
+### 2. Pasirinkimo meniu
+
+Programa pateiks meniu su keliais pasirinkimais:
+
+- Įvesti studentų duomenis rankiniu būdu
+- Nuskaityti duomenis iš failo
+- Generuoti atsitiktinius duomenis
+- Pasirinkti, ar rezultatus matyti terminale ar įrašyti į failą
+- Pasirinkti rūšiavimo būdą:
+  - pagal vardą
+  - pagal pavardę
+  - pagal galutinio pažymio vidurkį
+  - pagal galutinio pažymio medianą
+
+### 3. Duomenų įvedimas arba nuskaitymas
+
+Įvedus arba nuskaitytus duomenis, programa apskaičiuoja kiekvieno studento:
+
+- namų darbų vidurkį
+- galutinį pažymį (naudojant vidurkį arba medianą)
+- priskyrimą „kietiakų“ arba „vargšiukų“ grupei
+
+### 4. Rezultatų išvedimas
+
+Pasirinkus išvedimo būdą, rezultatai pateikiami:
+
+- Konsolėje
+- Į failus, pavyzdžiui:
+  - `kietiakiai1000.txt`
+  - `vargsiukai1000.txt`
+
+_(kur 1000 – studentų skaičius)_
+
+### 5. Greitaveikos informacija
+
+Po kiekvienos reikšmingos operacijos (pvz., failo nuskaitymo ar rūšiavimo) programa pateikia:
+
+- kiek laiko truko operacija (sekundėmis)
+- bendrą vidutinį laiką
+
+## Pastabos
+
+- Įvedant duomenis rankiniu būdu, įvestis tikrinama. Netinkami duomenys atmetami su klaidos pranešimu.
+- Failų skaitymui būtina teisinga `.txt` struktūra: pirmoje eilutėje antraštės, vėliau studentų duomenys (vardas, pavardė, pažymiai, egzaminas).
+- Naudojant labai daug duomenų, rekomenduojama naudoti optimizuotą versiją (`-O2` arba `-O3`).
+
+## Vienetinių testų paleidimas
+
+Jei norite paleisti testus:
+
+- Sukompiliuokite testų vykdomąjį failą:
+
+Žiūrėti į projekto paleidimo instrukcija 4 punktą.
 
 # Testai
 
@@ -367,3 +432,80 @@ class Zmogus{
 - `virtual ~Zmogus() = default;` garantuoja, kad sunaikinant išvestinės klasės objektą bus teisingai kviečiamas destruktorius.
 
 Ši bazinė struktūra yra kaip pagrindas, leidžiantis kurti ivairias `Zmogus` klases, tokias kaip `Studentas`, `Darbuotojas` ir pan., priversdama jas implementuoti savo `prisistatymas()` metodo.
+
+# CHANGELOG
+
+## v0.1 Release
+
+- Pridėta galimybė naudotojui įvesti studentų duomenis
+- Sukurtas meniu, leidžiantis naudotojui pasirinkti skirtingas programos funkcijas
+- Įdiegta naudotojo įvesties tikrinimo (validacijos) sistema
+
+---
+
+## v0.2 Release
+
+- Pridėta galimybė nuskaityti duomenis iš failo
+- Pridėta galimybė naudotojui pasirinkti rezultatų išvedimo vietą (konsolė / failas)
+- Pridėta galimybė rūšiuoti duomenis pagal:
+  - vardą
+  - pavardę
+  - galutinio pažymio vidurkį
+  - galutinio pažymio medianą
+- Po kiekvieno failo nuskaitymo parodyta, kiek laiko operacija truko (sekundėmis)
+- Parodytas bendras nuskaitymo laiko vidurkis
+
+---
+
+## v0.3 Release
+
+- Patobulinta projekto struktūra
+- Įdiegta klaidų valdymo sistema
+- Vartotojo sąsajos pranešimai, validacija ir klaidų žinutės išverstos į lietuvių kalbą
+- Atnaujintas `README.md` failas
+
+---
+
+## v0.4 Release
+
+- Pridėta galimybė sugeneruoti failą su atsitiktiniais studentų duomenimis
+- Atlikti programos greičio testai
+- Tyrimo rezultatai aprašyti `README.md` faile
+
+---
+
+## v1.0 Release
+
+- Palygintos skirtingos studentų skirstymo (filtravimo) strategijos į gerus ir blogus studentus
+- Palygintos trys duomenų struktūros: `vector`, `list` ir `deque`
+- Atnaujintas `README.md` failas – pridėti visi testų rezultatai ir padarytos išvados
+
+---
+
+## v1.1 Release
+
+- Vietoj `struct` pradėta naudoti `class` Studentui atvaizduoti
+- Atnaujintas `Makefile` – pridėtos instrukcijos kompiliuoti su `-O1`, `-O2` ir `-O3` optimizacijomis
+- Atlikti `struct` ir `class` palyginamieji testai
+- Dokumentuoti vykdomųjų failų dydžiai pagal skirtingas optimizacijas
+
+---
+
+## v1.2 Release
+
+- Įgyvendinta penkių taisyklė (Rule of Five) Studentas klasėje
+- Perkrauti `>>` ir `<<` operatoriai Studentas klasėje
+
+---
+
+## v1.5 Release
+
+- Pridėta abstrakti `Žmogus` klasė
+- Įgyvendintas `prisistatymas` metodas Studentas klasėje
+
+---
+
+## v2.0 Release
+
+- Sukurta dokumentacija naudojant **Doxygen**
+- Pridėti vienetiniai testai (unit tests), naudojant **Catch2** biblioteką
