@@ -189,6 +189,20 @@ void strategija_1(){
 }
 
 template <typename konteineris>
+void isrinkVargsiukus(konteineris& visi, konteineris& vargsiukai){
+    {
+        auto it = visi.begin();
+        while (it != visi.end()) {
+            if (it->vidurkis < 5) {
+                vargsiukai.push_back(*it);
+                it = visi.erase(it);  // erase grąžina sekančią galiojančią iteraciją
+            } else {
+                ++it;
+            }
+        }
+    }}
+
+template <typename konteineris>
 void strategija_2(){
     
     konteineris visi;
@@ -210,13 +224,8 @@ void strategija_2(){
     cout << endl << "Duomenu rikiavimas nuo didziausio vidurkio iki maziausio uztruko: " << rikiavimo_trukme.count() << " s" << endl;
 
     auto isskirstymo_pradzia = std::chrono::high_resolution_clock::now();
-
-    auto it = stable_partition(visi.begin(), visi.end(), [](const Studentas& s) {
-        return s.vidurkis >= 5;
-    });
-
-    vargsiukai.insert(vargsiukai.end(), it, visi.end());
-    visi.erase(it, visi.end());
+    
+    isrinkVargsiukus(visi, vargsiukai);
     
     auto isskirstymo_pabaiga = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> isskirstymo_trukme = isskirstymo_pabaiga - isskirstymo_pradzia;
