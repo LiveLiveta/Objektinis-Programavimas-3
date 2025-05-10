@@ -1,0 +1,323 @@
+\doxysection{funkcijos.\+h}
+\hypertarget{funkcijos_8h_source}{}\label{funkcijos_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}pagalbines.h"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ FUNKCIJOS\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ FUNKCIJOS\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_zmogus}{Zmogus}}\{}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ prisistatymas()\ =\ 0;\ }
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_zmogus}{\string~Zmogus}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00009\ \};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }Studentas\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_zmogus}{Zmogus}}\{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ pavarde;}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ vardas;}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ vector<int>\ pazymiai;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ egzamino\_pazymys;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ vidurkis;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \ mediana;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ Studentas(\textcolor{keywordtype}{string}\ vardass,\ \textcolor{keywordtype}{string}\ pavardee,\ vector<int>\ pazymiaii,\ \textcolor{keywordtype}{int}\ egzamino\_pazymyss);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ Studentas(\textcolor{keyword}{const}\ Studentas\&\ originalas);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ Studentas\&\ operator=(\textcolor{keyword}{const}\ Studentas\&\ originalas);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ Studentas(Studentas\&\&\ originalas)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ Studentas\&\ operator=(Studentas\&\&\ originalas)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ Studentas();}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \string~Studentas();}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ ostream\&\ operator<<(ostream\&\ isvesties\_vieta,\ \textcolor{keyword}{const}\ Studentas\&\ studentas);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ istream\&\ operator>>(istream\&\ isvesties\_vieta,\ Studentas\&\ studentas);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ prisistatymas()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ vidurkio\_skaiciavimas();}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ medianos\_skaiciavimas();}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ studentu\_kiekis;}
+\DoxyCodeLine{00035\ \textcolor{keyword}{extern}\ vector<string>\ vardai;}
+\DoxyCodeLine{00036\ \textcolor{keyword}{extern}\ vector<string>\ pavardes;}
+\DoxyCodeLine{00037\ \textcolor{keyword}{extern}\ vector<Studentas>\ studentai;}
+\DoxyCodeLine{00038\ \textcolor{keyword}{extern}\ vector<double>\ operaciju\_laikai;}
+\DoxyCodeLine{00039\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ operaciju\_kiekis;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ failo\_su\_studentais\_generavimas();}
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{int}\ pasirinkimo\_pavertimas\_i\_reiksme(\textcolor{keywordtype}{int}\ failo\_generavimo\_pasirinkimas);}
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ failo\_generavimas(\textcolor{keywordtype}{int}\ studentu\_kiekis,\ \textcolor{keywordtype}{int}\ pazymiu\_kiekis);}
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{int}\ vieno\_pazymio\_sugeneravimas();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ studento\_duomenu\_gavimas(vector<Studentas>\ \&studentai);}
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{int}\ studento\_duomenu\_surasymo\_pasirinkimas();}
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{double}\ laiku\_vidurkio\_skaiciavimas(vector<double>\ \&operaciju\_laikai);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ studento\_duomenu\_printinimas(vector<Studentas>\ \&studentai);}
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ studento\_duomenu\_rikiavimas(vector<Studentas>\ \&studentai);}
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{bool}\ rikiuoti\_pagal\_varda(\mbox{\hyperlink{class_studentas}{Studentas}}\ \&a,\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&b);}
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{bool}\ rikiuoti\_pagal\_pavarde(\mbox{\hyperlink{class_studentas}{Studentas}}\ \&a,\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&b);}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{bool}\ rikiuoti\_pagal\_vidurkis(\mbox{\hyperlink{class_studentas}{Studentas}}\ \&a,\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&b);}
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{bool}\ rikiuoti\_pagal\_mediana(\mbox{\hyperlink{class_studentas}{Studentas}}\ \&a,\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&b);}
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{bool}\ baigiasi\_su\_txt(\textcolor{keywordtype}{string}\ failo\_pavadinimas);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ studento\_vardo\_ir\_pavardes\_gavimas(\mbox{\hyperlink{class_studentas}{Studentas}}\ \&laikinas\_studentas);}
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ studento\_pazymiu\_gavimas(\mbox{\hyperlink{class_studentas}{Studentas}}\ \&laikinas\_studentas);}
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ studento\_egzamino\_pazymio\_gavimas(\mbox{\hyperlink{class_studentas}{Studentas}}\ \&laikinas\_studentas);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{void}\ tikrinimas\_ar\_pavyko\_atidaryti\_faila(\textcolor{keywordtype}{string}\&\ failo\_pavadinimas);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ studento\_pazymiu\_ir\_egzaminu\_generavimas(\mbox{\hyperlink{class_studentas}{Studentas}}\ \&laikinas\_studentas);}
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{int}\ gauk\_kiek\_pazimiu\_sugeneruoti();}
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ studento\_vardo\_ir\_pavardes\_generavimas(\mbox{\hyperlink{class_studentas}{Studentas}}\ \&laikinas\_studentas);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ visi\_duomenys\_surasomi\_ranka();}
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ surasoma\_ranka\_isskyrus\_pazymius();}
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ viskas\_generuojama\_atsitiktinai();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ konteineris>}
+\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ studentu\_medianos\_skaiciavimas(konteineris\ \&studentai)\{}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ studentai.begin();\ it\ !=\ studentai.end();\ ++it)\{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ it-\/>medianos\_skaiciavimas();}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \}}
+\DoxyCodeLine{00079\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ konteineris>}
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ duomenu\_surasymas\_i\_faila(konteineris\ studentai,\ \textcolor{keywordtype}{string}\ failo\_pavadinimas)\{}
+\DoxyCodeLine{00081\ \ \ \ \ ofstream\ failas(failo\_pavadinimas);}
+\DoxyCodeLine{00082\ \ \ \ \ failas\ <<\ setw(18)\ <<\ left\ <<\ \textcolor{stringliteral}{"{}Vardas"{}}\ <<\ setw(18)\ <<\ left\ <<\ \textcolor{stringliteral}{"{}Pavarde"{}}\ <<\ setw(20)\ <<\ left\ <<\ \textcolor{stringliteral}{"{}Galutinis\ (Vid.)"{}}\ <<\ setw(20)\ <<\ left\ <<\ \textcolor{stringliteral}{"{}Galutinis\ (Med.)"{}}\ <<endl;}
+\DoxyCodeLine{00083\ \ \ \ \ failas\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}\ <<\ endl;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ iteratorius\ =\ studentai.begin();\ iteratorius\ !=\ studentai.end();\ ++iteratorius)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ failas\ <<\ std::setw(18)\ <<\ std::left\ <<\ iteratorius-\/>vardas}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::setw(18)\ <<\ std::left\ <<\ iteratorius-\/>pavarde}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::setw(20)\ <<\ std::left\ <<\ std::fixed\ <<\ std::setprecision(2)\ <<\ iteratorius-\/>vidurkis}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::setw(20)\ <<\ iteratorius-\/>mediana\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ failas.close();\ }
+\DoxyCodeLine{00094\ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ konteineris>}
+\DoxyCodeLine{00097\ \textcolor{keywordtype}{void}\ studento\_vidurkio\_skaiciavimas(konteineris\ \&studentai)\{}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ iteratorius\ =\ studentai.begin();\ iteratorius\ !=\ studentai.end();\ ++iteratorius)\ \{\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ iteratorius-\/>vidurkio\_skaiciavimas();}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ konteineris>}
+\DoxyCodeLine{00105\ \textcolor{keywordtype}{void}\ studento\_duomenu\_is\_failo\_susirasymas(konteineris\&studentai,\ \textcolor{keywordtype}{string}\&\ failo\_pavadinimas)\{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{auto}\ pradzia\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00107\ \ }
+\DoxyCodeLine{00108\ \ \ \ \ ifstream\ failas(failo\_pavadinimas);}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{string}\ antrastine\_eilute;}
+\DoxyCodeLine{00110\ \ \ \ \ getline(failas,\ antrastine\_eilute);}
+\DoxyCodeLine{00111\ \ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{string}\ eilute;}
+\DoxyCodeLine{00113\ \ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{while}(getline(failas,\ eilute))\{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\ laikinas\_studentas;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ stringstream\ eil(eilute);}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ eil\ >>\ laikinas\_studentas.vardas\ >>\ laikinas\_studentas.pavarde;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pazymys;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (eil\ >>\ pazymys)\{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ laikinas\_studentas.pazymiai.push\_back(pazymys);}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ laikinas\_studentas.egzamino\_pazymys\ =\ laikinas\_studentas.pazymiai.back();}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ laikinas\_studentas.pazymiai.pop\_back();}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ studentai.push\_back(laikinas\_studentas);}
+\DoxyCodeLine{00125\ \ \ \ \ \}}
+\DoxyCodeLine{00126\ \ \ \ \ operaciju\_kiekis\ +=\ 1;}
+\DoxyCodeLine{00127\ \ \ \ \ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{auto}\ pabaiga\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00129\ \ \ \ \ std::chrono::duration<double>\ trukme\ =\ pabaiga\ -\/\ pradzia;}
+\DoxyCodeLine{00130\ \ \ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}duomenu\ is\ failo\ nuskaitymas\ uztruko:\ "{}}\ <<\ trukme.count()\ <<\ \textcolor{stringliteral}{"{}\ s"{}}\ <<\ endl;}
+\DoxyCodeLine{00131\ \ \ \ \ operaciju\_laikai.push\_back(trukme.count());}
+\DoxyCodeLine{00132\ \ \ \ \ failas.close();}
+\DoxyCodeLine{00133\ \ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ konteineris>}
+\DoxyCodeLine{00136\ \textcolor{keywordtype}{void}\ studento\_duomenu\_skaitymas\_is\_failo(konteineris\&\ studentai)\{}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{string}\ failo\_pavadinimas;}
+\DoxyCodeLine{00138\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Iveskite\ norimo\ nuskaityti\ failo\ pavadinima:\ "{}}\ <<\ endl;}
+\DoxyCodeLine{00139\ \ \ \ \ cin\ >>\ failo\_pavadinimas;}
+\DoxyCodeLine{00140\ \ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ tikrinimas\_ar\_pavyko\_atidaryti\_faila(failo\_pavadinimas);}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{catch}(exception\ \&eroras)\{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ eroras.what()\ <<\ endl;}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ failo\_pavadinimas;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Failas\ atidarytas\ sekmingai!"{}}\ <<\ endl;}
+\DoxyCodeLine{00151\ \ \ \ \ studento\_duomenu\_is\_failo\_susirasymas(studentai,\ failo\_pavadinimas);}
+\DoxyCodeLine{00152\ \ }
+\DoxyCodeLine{00153\ \ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ konteineris>}
+\DoxyCodeLine{00156\ \textcolor{keywordtype}{void}\ strategija\_1()\{}
+\DoxyCodeLine{00157\ \ \ \ \ }
+\DoxyCodeLine{00158\ \ \ \ \ konteineris\ visi;}
+\DoxyCodeLine{00159\ \ \ \ \ konteineris\ vargsiukai;}
+\DoxyCodeLine{00160\ \ \ \ \ konteineris\ kietiakiai;}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ studento\_duomenu\_skaitymas\_is\_failo(visi);}
+\DoxyCodeLine{00163\ \ \ \ \ studento\_vidurkio\_skaiciavimas(visi);}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{auto}\ rikiavimo\_pradzia\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (is\_same\_v<konteineris,\ list<Studentas>>)\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ visi.sort(rikiuoti\_pagal\_vidurkis);}
+\DoxyCodeLine{00169\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ sort(visi.begin(),\ visi.end(),\ rikiuoti\_pagal\_vidurkis);}
+\DoxyCodeLine{00171\ \ \ \ \ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{auto}\ rikiavimo\_pabaiga\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00174\ \ \ \ \ std::chrono::duration<double>\ rikiavimo\_trukme\ =\ rikiavimo\_pabaiga\ -\/\ rikiavimo\_pradzia;}
+\DoxyCodeLine{00175\ \ \ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}Duomenu\ rikiavimas\ nuo\ didziausio\ vidurkio\ iki\ maziausio\ uztruko:\ "{}}\ <<\ rikiavimo\_trukme.count()\ <<\ \textcolor{stringliteral}{"{}\ s"{}}\ <<\ endl;}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{auto}\ isskirstymo\_pradzia\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ visi.begin();\ it\ !=\ visi.end();\ ++it)\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it-\/>vidurkis\ >=\ 5)\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ kietiakiai.push\_back(*it);}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ vargsiukai.push\_back(*it);\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00185\ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \ \ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keyword}{auto}\ isskirstymo\_pabaiga\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00188\ \ \ \ \ std::chrono::duration<double>\ isskirstymo\_trukme\ =\ isskirstymo\_pabaiga\ -\/\ isskirstymo\_pradzia;}
+\DoxyCodeLine{00189\ \ \ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}Duomenu\ isskirstymas\ i\ kietiakus\ ir\ vargsiukus\ uztruko:\ "{}}\ <<\ isskirstymo\_trukme.count()\ <<\ \textcolor{stringliteral}{"{}\ s"{}}\ <<\ endl;}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordtype}{string}\ failo\_pavadinimo\_pabaiga\ =\ \textcolor{stringliteral}{"{}.txt"{}};}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{string}\ failo\_pavadinimas\_kieti\ =\ \textcolor{stringliteral}{"{}kietiakiai"{}}\ +\ to\_string(kietiakiai.size())\ +\ failo\_pavadinimo\_pabaiga;}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordtype}{string}\ failo\_pavadinimas\_vargsai\ =\ \textcolor{stringliteral}{"{}vargsiukai"{}}\ +\ to\_string(vargsiukai.size())\ +\ failo\_pavadinimo\_pabaiga;}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ studento\_vidurkio\_skaiciavimas(kietiakiai);}
+\DoxyCodeLine{00196\ \ \ \ \ studento\_vidurkio\_skaiciavimas(vargsiukai);}
+\DoxyCodeLine{00197\ \ \ \ \ studentu\_medianos\_skaiciavimas(kietiakiai);}
+\DoxyCodeLine{00198\ \ \ \ \ studentu\_medianos\_skaiciavimas(vargsiukai);}
+\DoxyCodeLine{00199\ \ \ \ \ duomenu\_surasymas\_i\_faila(kietiakiai,\ failo\_pavadinimas\_kieti);}
+\DoxyCodeLine{00200\ \ \ \ \ duomenu\_surasymas\_i\_faila(vargsiukai,\ failo\_pavadinimas\_vargsai);\ \ \ }
+\DoxyCodeLine{00201\ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ konteineris>}
+\DoxyCodeLine{00204\ \textcolor{keywordtype}{void}\ isrinkVargsiukus(konteineris\&\ visi,\ konteineris\&\ vargsiukai)\{}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_same\_v<konteineris,\ std::list<Studentas>>)\ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Su\ list\ trinam\ iš\ priekio\ į\ galą}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ visi.begin();}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (it\ !=\ visi.end())\ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it-\/>vidurkis\ <\ 5)\ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vargsiukai.push\_back(*it);}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ it\ =\ visi.erase(it);}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++it;}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Su\ vector\ /\ deque\ –\ trinam\ iš\ galo\ į\ priekį,\ kad\ mažiau\ perstumdinėtų}}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ visi.end();\ it\ !=\ visi.begin();\ )\ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/it;}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it-\/>vidurkis\ <\ 5)\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vargsiukai.push\_back(*it);}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ it\ =\ visi.erase(it);\ \ \textcolor{comment}{//\ erase\ grąžina\ iteratorių\ į\ sekantį\ po\ ištrinto}}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00225\ \ \ \ \ \}}
+\DoxyCodeLine{00226\ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ konteineris>}
+\DoxyCodeLine{00229\ \textcolor{keywordtype}{void}\ strategija\_2()\{}
+\DoxyCodeLine{00230\ \ \ \ \ }
+\DoxyCodeLine{00231\ \ \ \ \ konteineris\ visi;}
+\DoxyCodeLine{00232\ \ \ \ \ konteineris\ vargsiukai;}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ studento\_duomenu\_skaitymas\_is\_failo(visi);}
+\DoxyCodeLine{00235\ \ \ \ \ studento\_vidurkio\_skaiciavimas(visi);}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keyword}{auto}\ rikiavimo\_pradzia\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (is\_same\_v<konteineris,\ list<Studentas>>)\ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ visi.sort(rikiuoti\_pagal\_vidurkis);}
+\DoxyCodeLine{00241\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ sort(visi.begin(),\ visi.end(),\ rikiuoti\_pagal\_vidurkis);}
+\DoxyCodeLine{00243\ \ \ \ \ \}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keyword}{auto}\ rikiavimo\_pabaiga\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00246\ \ \ \ \ std::chrono::duration<double>\ rikiavimo\_trukme\ =\ rikiavimo\_pabaiga\ -\/\ rikiavimo\_pradzia;}
+\DoxyCodeLine{00247\ \ \ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}Duomenu\ rikiavimas\ nuo\ didziausio\ vidurkio\ iki\ maziausio\ uztruko:\ "{}}\ <<\ rikiavimo\_trukme.count()\ <<\ \textcolor{stringliteral}{"{}\ s"{}}\ <<\ endl;}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keyword}{auto}\ isskirstymo\_pradzia\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ \ \ isrinkVargsiukus(visi,\ vargsiukai);}
+\DoxyCodeLine{00252\ \ \ \ \ }
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keyword}{auto}\ isskirstymo\_pabaiga\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (is\_same\_v<konteineris,\ list<Studentas>>)\ \{}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ vargsiukai.sort(rikiuoti\_pagal\_vidurkis);}
+\DoxyCodeLine{00257\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ sort(vargsiukai.begin(),\ vargsiukai.end(),\ rikiuoti\_pagal\_vidurkis);}
+\DoxyCodeLine{00259\ \ \ \ \ \}}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ std::chrono::duration<double>\ isskirstymo\_trukme\ =\ isskirstymo\_pabaiga\ -\/\ isskirstymo\_pradzia;}
+\DoxyCodeLine{00262\ \ \ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}Duomenu\ isskirstymas\ i\ kietiakus\ ir\ vargsiukus\ uztruko:\ "{}}\ <<\ isskirstymo\_trukme.count()\ <<\ \textcolor{stringliteral}{"{}\ s"{}}\ <<\ endl;}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordtype}{string}\ failo\_pavadinimo\_pabaiga\ =\ \textcolor{stringliteral}{"{}.txt"{}};}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordtype}{string}\ failo\_pavadinimas\_kieti\ =\ \textcolor{stringliteral}{"{}kietiakiai"{}}\ +\ to\_string(visi.size())\ +\ failo\_pavadinimo\_pabaiga;}
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordtype}{string}\ failo\_pavadinimas\_vargsai\ =\ \textcolor{stringliteral}{"{}vargsiukai"{}}\ +\ to\_string(vargsiukai.size())\ +\ failo\_pavadinimo\_pabaiga;}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \ \ studento\_vidurkio\_skaiciavimas(visi);}
+\DoxyCodeLine{00269\ \ \ \ \ studento\_vidurkio\_skaiciavimas(vargsiukai);}
+\DoxyCodeLine{00270\ \ \ \ \ studentu\_medianos\_skaiciavimas(visi);}
+\DoxyCodeLine{00271\ \ \ \ \ studentu\_medianos\_skaiciavimas(vargsiukai);}
+\DoxyCodeLine{00272\ \ \ \ \ duomenu\_surasymas\_i\_faila(visi,\ failo\_pavadinimas\_kieti);}
+\DoxyCodeLine{00273\ \ \ \ \ duomenu\_surasymas\_i\_faila(vargsiukai,\ failo\_pavadinimas\_vargsai);\ \ \ }
+\DoxyCodeLine{00274\ \}}
+\DoxyCodeLine{00275\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ konteineris>}
+\DoxyCodeLine{00276\ \textcolor{keywordtype}{void}\ strategija\_3()\{}
+\DoxyCodeLine{00277\ \ \ \ \ }
+\DoxyCodeLine{00278\ \ \ \ \ konteineris\ visi;}
+\DoxyCodeLine{00279\ \ \ \ \ studento\_duomenu\_skaitymas\_is\_failo(visi);}
+\DoxyCodeLine{00280\ \ \ \ \ studento\_vidurkio\_skaiciavimas(visi);}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keyword}{auto}\ rikiavimo\_pradzia\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (is\_same\_v<konteineris,\ list<Studentas>>)\ \{}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ visi.sort(rikiuoti\_pagal\_vidurkis);}
+\DoxyCodeLine{00285\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ sort(visi.begin(),\ visi.end(),\ rikiuoti\_pagal\_vidurkis);}
+\DoxyCodeLine{00287\ \ \ \ \ \}}
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keyword}{auto}\ rikiavimo\_pabaiga\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00289\ \ \ \ \ std::chrono::duration<double>\ rikiavimo\_trukme\ =\ rikiavimo\_pabaiga\ -\/\ rikiavimo\_pradzia;}
+\DoxyCodeLine{00290\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nDuomenu\ rikiavimas\ nuo\ didziausio\ vidurkio\ iki\ maziausio\ uztruko:\ "{}}\ <<\ rikiavimo\_trukme.count()\ <<\ \textcolor{stringliteral}{"{}\ s"{}}\ <<\ endl;}
+\DoxyCodeLine{00291\ \ \ \ }
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keyword}{auto}\ isskirstymo\_pradzia\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00293\ \ \ \ \ }
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{comment}{//\ Partitioning\ students\ into\ two\ groups\ using\ stable\_partition}}
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ stable\_partition(visi.begin(),\ visi.end(),\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ s)\ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ return\ s.vidurkis\ >=\ 5;}
+\DoxyCodeLine{00297\ \ \ \ \ \});}
+\DoxyCodeLine{00298\ \ \ \ \ }
+\DoxyCodeLine{00299\ \ \ \ \ konteineris\ kietiakiai(visi.begin(),\ it);}
+\DoxyCodeLine{00300\ \ \ \ \ konteineris\ vargsiukai(it,\ visi.end());}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keyword}{auto}\ isskirstymo\_pabaiga\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00303\ \ \ \ \ std::chrono::duration<double>\ isskirstymo\_trukme\ =\ isskirstymo\_pabaiga\ -\/\ isskirstymo\_pradzia;}
+\DoxyCodeLine{00304\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nDuomenu\ isskirstymas\ i\ kietiakus\ ir\ vargsiukus\ uztruko:\ "{}}\ <<\ isskirstymo\_trukme.count()\ <<\ \textcolor{stringliteral}{"{}\ s"{}}\ <<\ endl;}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keywordtype}{string}\ failo\_pavadinimo\_pabaiga\ =\ \textcolor{stringliteral}{"{}.txt"{}};}
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordtype}{string}\ failo\_pavadinimas\_kieti\ =\ \textcolor{stringliteral}{"{}kietiakiai"{}}\ +\ to\_string(kietiakiai.size())\ +\ failo\_pavadinimo\_pabaiga;}
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keywordtype}{string}\ failo\_pavadinimas\_vargsai\ =\ \textcolor{stringliteral}{"{}vargsiukai"{}}\ +\ to\_string(vargsiukai.size())\ +\ failo\_pavadinimo\_pabaiga;}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \ \ \ \ studento\_vidurkio\_skaiciavimas(kietiakiai);}
+\DoxyCodeLine{00311\ \ \ \ \ studento\_vidurkio\_skaiciavimas(vargsiukai);}
+\DoxyCodeLine{00312\ \ \ \ \ studentu\_medianos\_skaiciavimas(kietiakiai);}
+\DoxyCodeLine{00313\ \ \ \ \ studentu\_medianos\_skaiciavimas(vargsiukai);}
+\DoxyCodeLine{00314\ \ \ \ \ duomenu\_surasymas\_i\_faila(kietiakiai,\ failo\_pavadinimas\_kieti);}
+\DoxyCodeLine{00315\ \ \ \ \ duomenu\_surasymas\_i\_faila(vargsiukai,\ failo\_pavadinimas\_vargsai);}
+\DoxyCodeLine{00316\ \}}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
