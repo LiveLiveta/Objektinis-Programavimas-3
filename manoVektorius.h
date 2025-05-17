@@ -22,6 +22,10 @@ public:
     Vektorius(Vektorius&& pagrindinis) noexcept; // Move constructor
     Vektorius& operator=(Vektorius&& pagrindinis) noexcept; // Move assignment operator
 
+        // operators
+    ElementoTipas& operator[](size_t index);
+    const ElementoTipas& operator[](size_t index) const;
+
     // getters
     size_t size() const;
     size_t capacity() const;
@@ -145,6 +149,16 @@ void Vektorius<ElementoTipas>::pop_back() {
     if (dydis > 0) {
         --dydis;
     }
+}
+
+template <typename ElementoTipas>
+ElementoTipas& Vektorius<ElementoTipas>::operator[](size_t index) {
+    return masyvas[index];
+}
+
+template <typename ElementoTipas>
+const ElementoTipas& Vektorius<ElementoTipas>::operator[](size_t index) const {
+    return masyvas[index];
 }
 
 #endif
