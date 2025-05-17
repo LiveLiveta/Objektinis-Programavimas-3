@@ -48,6 +48,8 @@ public:
 
     void push_back(const ElementoTipas& elementas);
     void pop_back();
+    bool empty() const { return dydis == 0; }
+    ElementoTipas& at(size_t index);
 };
 
 
@@ -174,5 +176,15 @@ template <typename ElementoTipas>
 const ElementoTipas& Vektorius<ElementoTipas>::operator[](size_t index) const {
     return masyvas[index];
 }
+
+template <typename ElementoTipas>
+ElementoTipas& Vektorius<ElementoTipas>::at(size_t index) {
+    if (index >= dydis) {
+        throw out_of_range("Index is out of range.");
+    }
+
+    return masyvas[index];
+}
+
 
 #endif
