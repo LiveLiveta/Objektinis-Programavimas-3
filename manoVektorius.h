@@ -9,6 +9,9 @@ private:
     ElementoTipas* masyvas;
     size_t dydis;
     size_t talpa;
+
+    void reallocate(size_t naujaTalpa);
+
 public:
     // The rule of five
     Vektorius();
@@ -107,7 +110,19 @@ size_t Vektorius<ElementoTipas>::capacity() const {
     return talpa;
 }
 
+template <typename ElementoTipas>
+void Vektorius<ElementoTipas>::reallocate(size_t naujaTalpa) {
+    ElementoTipas* newArray = new ElementoTipas[naujaTalpa];
 
+    for (size_t i = 0; i < dydis; ++i) {
+        newArray[i] = masyvas[i];
+    }
+
+    delete[] masyvas;
+
+    masyvas = newArray;
+    talpa = naujaTalpa;
+}
 
 
 #endif
