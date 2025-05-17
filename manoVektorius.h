@@ -15,6 +15,8 @@ public:
 
     Vektorius(const Vektorius& pagrindinis); // Copy constructor
     Vektorius& operator=(const Vektorius& pagrindinis); // Copy assignment operator
+    Vektorius(Vektorius&& pagrindinis) noexcept; // Move constructor
+    
 };
 
 
@@ -57,6 +59,18 @@ Vektorius<ElementoTipas>& Vektorius<ElementoTipas>::operator=(const Vektorius& p
     }
 
     return *this;
+}
+
+// Move constructor
+template <typename ElementoTipas>
+Vektorius<ElementoTipas>::Vektorius(Vektorius&& pagrindinis) noexcept {
+    talpa = pagrindinis.talpa;
+    dydis = pagrindinis.dydis;
+    masyvas = pagrindinis.masyvas; //naujo masyvo rodykle yra pagrindinio rodykle.
+    
+    pagrindinis.masyvas = nullptr; // pagrindine rodykle neberodo i nieka.
+    pagrindinis.dydis = 0;
+    pagrindinis.talpa = 0;
 }
 
 
