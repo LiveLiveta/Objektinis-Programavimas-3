@@ -50,6 +50,7 @@ public:
     ElementoTipas& at(size_t index);
     void clear();
     void shrink_to_fit();
+    void reserve(size_t naujaTalpa);
 };
 
 
@@ -205,4 +206,10 @@ void Vektorius<ElementoTipas>::shrink_to_fit() {
     }
 }
 
+template <typename ElementoTipas>
+void Vektorius<ElementoTipas>::reserve(size_t naujaTalpa) {
+    if (naujaTalpa > talpa) {
+        reallocate(naujaTalpa);
+    }
+}
 #endif
