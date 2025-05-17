@@ -22,14 +22,28 @@ public:
     Vektorius(Vektorius&& pagrindinis) noexcept; // Move constructor
     Vektorius& operator=(Vektorius&& pagrindinis) noexcept; // Move assignment operator
 
-        // operators
+    // operators
     ElementoTipas& operator[](size_t index);
     const ElementoTipas& operator[](size_t index) const;
 
     // getters
     size_t size() const;
     size_t capacity() const;
-    
+
+    // itterators
+    ElementoTipas* begin() { return masyvas; }
+    ElementoTipas* end() { return masyvas + dydis; }
+
+        const ElementoTipas* begin() const { return masyvas; }
+    const ElementoTipas* end() const { return masyvas + dydis; }
+
+    ElementoTipas& front() { return masyvas[0]; }
+    ElementoTipas& back()  { return masyvas[dydis - 1]; }
+
+    const ElementoTipas& front() const { return masyvas[0]; }
+    const ElementoTipas& back() const  { return masyvas[dydis - 1]; }
+
+
 
 
     void push_back(const ElementoTipas& elementas);
