@@ -44,12 +44,11 @@ public:
     const ElementoTipas& back() const  { return masyvas[dydis - 1]; }
 
 
-
-
     void push_back(const ElementoTipas& elementas);
     void pop_back();
     bool empty() const { return dydis == 0; }
     ElementoTipas& at(size_t index);
+    void clear();
 };
 
 
@@ -184,6 +183,18 @@ ElementoTipas& Vektorius<ElementoTipas>::at(size_t index) {
     }
 
     return masyvas[index];
+}
+
+
+template <typename ElementoTipas>
+void Vektorius<ElementoTipas>::clear() {
+    if constexpr (!std::is_trivially_destructible<ElementoTipas>::value) {
+        for (size_t i = 0; i < dydis; ++i) {
+            masyvas[i].~ElementoTipas();  // aunaikina kiekviena elementa
+        }
+    }
+
+    dydis = 0;
 }
 
 
