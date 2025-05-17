@@ -49,6 +49,7 @@ public:
     bool empty() const { return dydis == 0; }
     ElementoTipas& at(size_t index);
     void clear();
+    void shrink_to_fit();
 };
 
 
@@ -197,5 +198,11 @@ void Vektorius<ElementoTipas>::clear() {
     dydis = 0;
 }
 
+template <typename ElementoTipas>
+void Vektorius<ElementoTipas>::shrink_to_fit() {
+    if (dydis < talpa) {
+        reallocate(dydis);
+    }
+}
 
 #endif
