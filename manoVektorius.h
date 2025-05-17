@@ -53,6 +53,7 @@ public:
     void shrink_to_fit();
     void reserve(size_t naujaTalpa);
     void erase(size_t index);
+    ElementoTipas* erase(ElementoTipas* it);
 
 };
 
@@ -271,9 +272,16 @@ template <typename ElementoTipas>
 Vektorius<ElementoTipas>::Vektorius(ElementoTipas* pradzia, ElementoTipas* pabaiga) {
     dydis = pabaiga - pradzia;
     talpa = dydis;
-    masyvas = new Elementotipas[talpa];
+    masyvas = new ElementoTipas[talpa];
     for (size_t i = 0; i < dydis; ++i) {
         masyvas[i] = pradzia[i];
     }
+}
+
+template <typename ElementoTipas>
+ElementoTipas* Vektorius<ElementoTipas>::erase(ElementoTipas* it)  {
+    size_t index = it - masyvas;
+    erase(index);
+    return masyvas + index;
 }
 #endif

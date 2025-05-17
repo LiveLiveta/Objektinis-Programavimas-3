@@ -18,6 +18,7 @@
 #include <iterator> 
 #include <type_traits>
 #include <cstddef>
+#include <stdexcept>
 
 
 using std:: cout;
@@ -57,3 +58,5 @@ using std:: move;
 using std:: ostream;
 using std:: istream;
 using std::chrono::round;
+using std:: out_of_range;
+using std:: stable_partition;

@@ -1,20 +1,45 @@
 #include "pagalbines.h"
 #include "funkcijos.h"
+#include "manoVektorius.h"
 
 int studentu_kiekis = 0;
-vector<string> vardai = { "Mantas", "Lukas", "Dominykas", "Kajus", "Dovydas", "Rokas", "Emilis", "Tadas", "Benas", "Jokubas"};
-vector<string> pavardes ={ "Kazlauskas", "Petrauskas", "Jankauskas", "Baliunas", "Vaiciulis", "Stankevicius", "Jonaitis", "Urbonas", "Zabielskas", "Paulauskas"};
-vector<Studentas> studentai;
-vector<double> operaciju_laikai;
+Vektorius<string> vardai;
+Vektorius<string> pavardes;
+Vektorius<Studentas> studentai;
+Vektorius<double> operaciju_laikai;
 int operaciju_kiekis = 0;
 
 int main(){
+
+    vardai.push_back("Mantas");
+    vardai.push_back("Lukas");
+    vardai.push_back("Dominykas");
+    vardai.push_back("Kajus");
+    vardai.push_back("Dovydas");
+    vardai.push_back("Rokas");
+    vardai.push_back("Emilis");
+    vardai.push_back("Tadas");
+    vardai.push_back("Benas");
+    vardai.push_back("Jokubas");
+
+    pavardes.push_back("Kazlauskas");
+    pavardes.push_back("Petrauskas");
+    pavardes.push_back("Jankauskas");
+    pavardes.push_back("Baliunas");
+    pavardes.push_back("Vaiciulis");
+    pavardes.push_back("Stankevicius");
+    pavardes.push_back("Jonaitis");
+    pavardes.push_back("Urbonas");
+    pavardes.push_back("Zabielskas");
+    pavardes.push_back("Paulauskas");
+
+
     studento_duomenu_gavimas(studentai);
     studento_duomenu_printinimas(studentai);
 
     // string vardas = "Jonas";
     // string pavarde = "Jonaitis";
-    // vector<int> pazymiai = {10,7,8};
+    // Vektorius<int> pazymiai = {10,7,8};
     // int egzamino_pazymys = 9;
 
     // cout << "Testuojam konstruktoriu su parametrais" << endl;
