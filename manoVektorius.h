@@ -10,6 +10,7 @@ private:
     size_t dydis;
     size_t talpa;
 public:
+    // The rule of five
     Vektorius();
     ~Vektorius();
 
@@ -17,6 +18,10 @@ public:
     Vektorius& operator=(const Vektorius& pagrindinis); // Copy assignment operator
     Vektorius(Vektorius&& pagrindinis) noexcept; // Move constructor
     Vektorius& operator=(Vektorius&& pagrindinis) noexcept; // Move assignment operator
+
+    // getters
+    size_t size() const;
+    size_t capacity() const;
     
 };
 
@@ -91,5 +96,18 @@ Vektorius<ElementoTipas>& Vektorius<ElementoTipas>::operator=(Vektorius&& pagrin
 
     return *this;
 }
+
+template <typename ElementoTipas>
+size_t Vektorius<ElementoTipas>::size() const {
+    return dydis;
+}
+
+template <typename ElementoTipas>
+size_t Vektorius<ElementoTipas>::capacity() const {
+    return talpa;
+}
+
+
+
 
 #endif
