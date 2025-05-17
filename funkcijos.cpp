@@ -1,4 +1,5 @@
 #include "funkcijos.h"
+#include "manoVektorius.h"
 
 void Studentas::vidurkio_skaiciavimas(){
     int pazymiu_suma = 0;
@@ -22,7 +23,7 @@ void Studentas::medianos_skaiciavimas(){
     if (pazymiu_kiekis == 0) {
         mediana = 0.6 * egzamino_pazymys;
     } else { 
-        vector<int> laikini_pazymiai(pazymiai.begin(), pazymiai.end());
+        Vektorius<int> laikini_pazymiai(pazymiai.begin(), pazymiai.end());
         sort(laikini_pazymiai.begin(), laikini_pazymiai.end());
     
         if (pazymiu_kiekis % 2 == 0) {
@@ -40,7 +41,7 @@ void Studentas::prisistatymas(){
 }
 
 Studentas::Studentas() {}
-Studentas::Studentas(string vardass, string pavardee, vector<int> pazymiaii, int egzamino_pazymyss) {
+Studentas::Studentas(string vardass, string pavardee, Vektorius<int> pazymiaii, int egzamino_pazymyss) {
     vardas = vardass;
     pavarde = pavardee;
     pazymiai = pazymiaii;
@@ -233,7 +234,7 @@ void konteinerio_ir_strategijos_pasirinkimas(){
 
     if (pasirinkimas_strategija == "1"){
         if(pasirinkimas_konteineris == "v"){
-            strategija_1<vector<Studentas>>();
+            strategija_1<Vektorius<Studentas>>();
         }else if(pasirinkimas_konteineris == "l"){
             strategija_1<list<Studentas>>();
         }if(pasirinkimas_konteineris == "d"){
@@ -241,7 +242,7 @@ void konteinerio_ir_strategijos_pasirinkimas(){
         }
     }else if (pasirinkimas_strategija == "2"){
         if(pasirinkimas_konteineris == "v"){
-            strategija_2<vector<Studentas>>();
+            strategija_2<Vektorius<Studentas>>();
         }else if(pasirinkimas_konteineris == "l"){
             strategija_2<list<Studentas>>();
         }if(pasirinkimas_konteineris == "d"){
@@ -249,7 +250,7 @@ void konteinerio_ir_strategijos_pasirinkimas(){
         }
     }else if(pasirinkimas_strategija == "3"){
         if(pasirinkimas_konteineris == "v"){
-            strategija_3<vector<Studentas>>();
+            strategija_3<Vektorius<Studentas>>();
         }else if(pasirinkimas_konteineris == "l"){
             strategija_3<list<Studentas>>();
         }if(pasirinkimas_konteineris == "d"){
@@ -258,7 +259,7 @@ void konteinerio_ir_strategijos_pasirinkimas(){
     }
 }
 
-void studento_duomenu_gavimas(vector<Studentas>& studentai){
+void studento_duomenu_gavimas(Vektorius<Studentas>& studentai){
     while(true){
         try{
             int  duomenu_surasymo_pasirinkimas = studento_duomenu_surasymo_pasirinkimas();
@@ -297,7 +298,7 @@ int studento_duomenu_surasymo_pasirinkimas(){
     cout << endl;
     return duomenu_surasymo_pasirinkimas;
  }
-double laiku_vidurkio_skaiciavimas(vector<double> &operaciju_laikai){
+double laiku_vidurkio_skaiciavimas(Vektorius<double> &operaciju_laikai){
    int operaciju_kiekis = operaciju_laikai.size();
 
     if (operaciju_kiekis == 0){
@@ -314,7 +315,7 @@ double laiku_vidurkio_skaiciavimas(vector<double> &operaciju_laikai){
    return vidurkis;
 }
 
-void studento_duomenu_printinimas(vector<Studentas> &studentai){
+void studento_duomenu_printinimas(Vektorius<Studentas> &studentai){
     if (studentai.size() == 0){
         return;
     }
@@ -350,7 +351,7 @@ void studento_duomenu_printinimas(vector<Studentas> &studentai){
    }
 }
  
-void studento_duomenu_rikiavimas(vector<Studentas> &studentai){
+void studento_duomenu_rikiavimas(Vektorius<Studentas> &studentai){
    int rusiuoti_pagal;
    while (true) {
    cout << "Pasirinkite rikiavimo kriteriju: " << endl;

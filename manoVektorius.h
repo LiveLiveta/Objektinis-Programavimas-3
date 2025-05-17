@@ -1,6 +1,6 @@
-#ifndef FUNKCIJOS_H
-#define FUNKCIJOS_H
-#include <pagalbines.h>
+#ifndef MANOVEKTORIUS_H
+#define MANOVEKTORIUS_H
+#include "pagalbines.h"
 
 template <typename ElementoTipas>
 class Vektorius{
@@ -21,6 +21,7 @@ public:
     Vektorius& operator=(const Vektorius& pagrindinis); // Copy assignment operator
     Vektorius(Vektorius&& pagrindinis) noexcept; // Move constructor
     Vektorius& operator=(Vektorius&& pagrindinis) noexcept; // Move assignment operator
+    Vektorius(ElementoTipas* first, ElementoTipas* last);
 
     // operators
     ElementoTipas& operator[](size_t index);
@@ -52,6 +53,7 @@ public:
     void shrink_to_fit();
     void reserve(size_t naujaTalpa);
     void erase(size_t index);
+
 };
 
 
@@ -265,5 +267,13 @@ bool operator>(const Vektorius<ElementoTipas>& lhs, const Vektorius<ElementoTipa
     return rhs < lhs;
 }
 
-
+template <typename ElementoTipas>
+Vektorius<ElementoTipas>::Vektorius(ElementoTipas* pradzia, ElementoTipas* pabaiga) {
+    dydis = pabaiga - pradzia;
+    talpa = dydis;
+    masyvas = new Elementotipas[talpa];
+    for (size_t i = 0; i < dydis; ++i) {
+        masyvas[i] = pradzia[i];
+    }
+}
 #endif

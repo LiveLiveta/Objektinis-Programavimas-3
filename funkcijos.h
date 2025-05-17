@@ -1,6 +1,8 @@
-#include "pagalbines.h"
 #ifndef FUNKCIJOS_H
 #define FUNKCIJOS_H
+
+#include "pagalbines.h"
+#include "manoVektorius.h"
 
 class Zmogus{
     public:
@@ -12,12 +14,12 @@ class Studentas : public Zmogus{
     public:
         string pavarde;
         string vardas;
-        vector<int> pazymiai;
+        Vektorius<int> pazymiai;
         int egzamino_pazymys;
         double vidurkis;
         double  mediana;
 
-        Studentas(string vardass, string pavardee, vector<int> pazymiaii, int egzamino_pazymyss);
+        Studentas(string vardass, string pavardee, Vektorius<int> pazymiaii, int egzamino_pazymyss);
         Studentas(const Studentas& originalas);
         Studentas& operator=(const Studentas& originalas);
         Studentas(Studentas&& originalas) noexcept;
@@ -32,10 +34,10 @@ class Studentas : public Zmogus{
 };
 
 extern int studentu_kiekis;
-extern vector<string> vardai;
-extern vector<string> pavardes;
-extern vector<Studentas> studentai;
-extern vector<double> operaciju_laikai;
+extern Vektorius<string> vardai;
+extern Vektorius<string> pavardes;
+extern Vektorius<Studentas> studentai;
+extern Vektorius<double> operaciju_laikai;
 extern int operaciju_kiekis;
 
 void failo_su_studentais_generavimas();
@@ -43,12 +45,12 @@ int pasirinkimo_pavertimas_i_reiksme(int failo_generavimo_pasirinkimas);
 void failo_generavimas(int studentu_kiekis, int pazymiu_kiekis);
 int vieno_pazymio_sugeneravimas();
 
-void studento_duomenu_gavimas(vector<Studentas> &studentai);
+void studento_duomenu_gavimas(Vektorius<Studentas> &studentai);
 int studento_duomenu_surasymo_pasirinkimas();
-double laiku_vidurkio_skaiciavimas(vector<double> &operaciju_laikai);
+double laiku_vidurkio_skaiciavimas(Vektorius<double> &operaciju_laikai);
 
-void studento_duomenu_printinimas(vector<Studentas> &studentai);
-void studento_duomenu_rikiavimas(vector<Studentas> &studentai);
+void studento_duomenu_printinimas(Vektorius<Studentas> &studentai);
+void studento_duomenu_rikiavimas(Vektorius<Studentas> &studentai);
 bool rikiuoti_pagal_varda(Studentas &a, Studentas &b);
 bool rikiuoti_pagal_pavarde(Studentas &a, Studentas &b);
 bool rikiuoti_pagal_vidurkis(Studentas &a, Studentas &b);
@@ -214,7 +216,7 @@ void isrinkVargsiukus(konteineris& visi, konteineris& vargsiukai){
             }
         }
     } else {
-        // Su vector / deque – trinam iš galo į priekį, kad mažiau perstumdinėtų
+        // Su Vektorius / deque – trinam iš galo į priekį, kad mažiau perstumdinėtų
         for (auto it = visi.end(); it != visi.begin(); ) {
             --it;
             if (it->vidurkis < 5) {
