@@ -2,7 +2,7 @@
 #define FUNKCIJOS_H
 #include <pagalbines.h>
 
-template <typename elemento_tipas>
+template <typename ElementoTipas>
 class Vektorius{
 
 private:
@@ -51,6 +51,7 @@ public:
     void clear();
     void shrink_to_fit();
     void reserve(size_t naujaTalpa);
+    void erase(size_t index);
 };
 
 
@@ -212,4 +213,57 @@ void Vektorius<ElementoTipas>::reserve(size_t naujaTalpa) {
         reallocate(naujaTalpa);
     }
 }
+
+template <typename ElementoTipas>
+void Vektorius<ElementoTipas>::erase(size_t index) {
+    if (index >= dydis) {
+        throw out_of_range("Index out of range in erase()");
+    }
+
+    if constexpr (!std::is_trivially_destructible<ElementoTipas>::value) {
+        masyvas[index].~ElementoTipas();  // sunaikina istrinta elementa jei reikia
+    }
+
+    // Visus elementus perstumia i kaite puse nuo index+1 iki galo
+    for (size_t i = index; i < dydis - 1; ++i) {
+        masyvas[i] = move(masyvas[i + 1]);
+    }
+
+    --dydis;
+}
+
+template <typename ElementoTipas>
+bool operator==(const Vektorius<ElementoTipas>& lhs, const Vektorius<ElementoTipas>& rhs) {
+    if (lhs.size() != rhs.size()) return false;
+
+    for (size_t i = 0; i < lhs.size(); ++i) {
+        if (lhs[i] != rhs[i]) return false;
+    }
+
+    return true;
+}
+
+template <typename ElementoTipas>
+bool operator!=(const Vektorius<ElementoTipas>& lhs, const Vektorius<ElementoTipas>& rhs) {
+    return !(lhs == rhs);
+}
+
+template <typename ElementoTipas>
+bool operator<(const Vektorius<ElementoTipas>& lhs, const Vektorius<ElementoTipas>& rhs) {
+    size_t minSize = (lhs.size() < rhs.size()) ? lhs.size() : rhs.size();
+
+    for (size_t i = 0; i < minSize; ++i) {
+        if (lhs[i] < rhs[i]) return true;
+        if (lhs[i] > rhs[i]) return false;
+    }
+
+    return lhs.size() < rhs.size();
+}
+
+template <typename ElementoTipas>
+bool operator>(const Vektorius<ElementoTipas>& lhs, const Vektorius<ElementoTipas>& rhs) {
+    return rhs < lhs;
+}
+
+
 #endif
