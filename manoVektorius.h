@@ -12,6 +12,8 @@ private:
 public:
     Vektorius();
     ~Vektorius();
+
+    Vektorius(const Vektorius& pagrindinis); // Copy constructor
 };
 
 
@@ -26,6 +28,18 @@ template <typename ElementoTipas>
 Vektorius<ElementoTipas>::~Vektorius() {
     delete[] masyvas;
 }
+
+template <typename ElementoTipas>
+Vektorius<ElementoTipas>::Vektorius(const Vektorius& pagrindinis){
+    dydis = pagrindinis.dydis;
+    talpa = pagrindinis.talpa;
+    masyvas = new ElementoTipas[talpa];
+
+    for (size_t i = 0; i < dydis; ++i) {
+        masyvas[i] = pagrindinis.masyvas[i];
+    }
+}
+
 
 
 #endif
