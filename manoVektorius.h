@@ -26,6 +26,10 @@ public:
     size_t size() const;
     size_t capacity() const;
     
+
+
+    void push_back(const ElementoTipas& elementas);
+    void pop_back();
 };
 
 
@@ -124,5 +128,23 @@ void Vektorius<ElementoTipas>::reallocate(size_t naujaTalpa) {
     talpa = naujaTalpa;
 }
 
+template <typename ElementoTipas>
+void Vektorius<ElementoTipas>::push_back(const ElementoTipas& elementas) {
+    if(dydis == talpa)
+    {
+        reallocate(talpa * 2); // padvigubina dabartine talpa
+    }
+
+    masyvas[dydis] = elementas;
+    ++dydis;
+}
+
+
+template <typename ElementoTipas>
+void Vektorius<ElementoTipas>::pop_back() {
+    if (dydis > 0) {
+        --dydis;
+    }
+}
 
 #endif
