@@ -16,6 +16,7 @@ public:
     Vektorius(const Vektorius& pagrindinis); // Copy constructor
     Vektorius& operator=(const Vektorius& pagrindinis); // Copy assignment operator
     Vektorius(Vektorius&& pagrindinis) noexcept; // Move constructor
+    Vektorius& operator=(Vektorius&& pagrindinis) noexcept; // Move assignment operator
     
 };
 
@@ -73,6 +74,22 @@ Vektorius<ElementoTipas>::Vektorius(Vektorius&& pagrindinis) noexcept {
     pagrindinis.talpa = 0;
 }
 
+// Move assignment operator
+template <typename ElementoTipas>
+Vektorius<ElementoTipas>& Vektorius<ElementoTipas>::operator=(Vektorius&& pagrindinis) noexcept {
+    if (this == &pagrindinis) return *this; // Self-assignment check
 
+    delete[] masyvas; // Release the current memory
+
+    masyvas = pagrindinis.masyvas; // Take ownership of the pagrindinis vector's data
+    dydis = pagrindinis.dydis;
+    talpa = pagrindinis.talpa;
+
+    pagrindinis.masyvas = nullptr; // Reset the pagrindinis vector
+    pagrindinis.dydis = 0;
+    pagrindinis.talpa = 0;
+
+    return *this;
+}
 
 #endif
