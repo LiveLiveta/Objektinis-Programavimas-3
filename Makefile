@@ -31,3 +31,7 @@ funkcijos_O2.o: funkcijos.cpp
 	g++ -O2 -c funkcijos.cpp -o funkcijos_O2.o
 funkcijos_O3.o: funkcijos.cpp
 	g++ -O3 -c funkcijos.cpp -o funkcijos_O3.o
+
+unittestai:
+	g++ testai/vektoriusUnitTestai.cpp -o vektoriusUnitTestai
+	
