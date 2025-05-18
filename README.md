@@ -375,3 +375,39 @@ class Zmogus{
 - `virtual ~Zmogus() = default;` garantuoja, kad sunaikinant išvestinės klasės objektą bus teisingai kviečiamas destruktorius.
 
 Ši bazinė struktūra yra kaip pagrindas, leidžiantis kurti ivairias `Zmogus` klases, tokias kaip `Studentas`, `Darbuotojas` ir pan., priversdama jas implementuoti savo `prisistatymas()` metodo.
+
+## Testai
+
+### std::vector ir mano Vektorius push_back() greitis ir perskirstymo greitis
+
+| Studentu kiekis | std::vector laikas | Mano Vektorius laikas | std::vector perskirstymas | Mano Vektorius perskirstymas |
+| --------------- | ------------------ | --------------------- | ------------------------- | ---------------------------- |
+| 10000           | 0 s                | 0 s                   | 15                        | 10                           |
+| 100000          | 0.001794 s         | 0.001915 s            | 18                        | 14                           |
+| 1000000         | 0.021624 s         | 0.016285 s            | 21                        | 17                           |
+| 10000000        | 0.201588 s         | 0.134709 s            | 25                        | 20                           |
+| 100000000       | 2.1565s            | 1.79215s              | 28                        | 24                           |
+
+### std::vector ir mano Vektorius failo generavimas
+
+| Studentu kiekis | std::vector laikas | Mano Vektorius laikas |
+| --------------- | ------------------ | --------------------- |
+| 1000            | 0.014633s          | 0.013252s             |
+| 10000           | 0.137478s          | 0.104858s             |
+| 100000          | 0.968856s          | 1.06672s              |
+| 1000000         | 9.64237s           | 10.2498s              |
+| 10000000        | 117.642s           | 106.34815s            |
+
+### std::vector ir mano Vektorius failo read/sort/divide greitis
+
+| std::vector      | 1000 studentai | 10000 studentai | 100000 studentai | 1000000 studentai | 10000000 studentai |
+| ---------------- | -------------- | --------------- | ---------------- | ----------------- | ------------------ |
+| Failo skaitymas: | 0.08294s       | 0.165984s       | 1.542088s        | 15.41559s         | 165.246s           |
+| Rūšiavimas:      | 0.005981s      | 0.0560194s      | 0.5255879s       | 6.19015s          | 60.56389s          |
+| Filtravimas:     | 0.0019701s     | 0.0088287s      | 0.0874609s       | 1.12756s          | 11.3952s           |
+
+| Mano Vektorius   | 1000 studentai | 10000 studentai | 100000 studentai | 1000000 studentai | 10000000 studentai |
+| ---------------- | -------------- | --------------- | ---------------- | ----------------- | ------------------ |
+| Failo skaitymas: | 0.0089653s     | 0.08539s        | 0.8317273s       | 8.32632s          | 84.6576s           |
+| Rūšiavimas:      | 0.003841s      | 0.0927s         | 0.4375459s       | 5.6459764s        | 58.65171s          |
+| Filtravimas:     | 0.000958s      | 0.01088s        | 0.099862s        | 1.096143s         | 11.39709s          |
