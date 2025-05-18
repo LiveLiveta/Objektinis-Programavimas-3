@@ -1,0 +1,527 @@
+\chapter{Projekto paleidimo instrukcija}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{Projekto paleidimo instrukcija@{Projekto paleidimo instrukcija}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+
+
+
+\begin{DoxyEnumerate}
+\item Naudodami git, galite klonuoti si projekta su komanda {\ttfamily git clone \href{https://github.com/LiveLiveta/Objektinis-Programavimas.git}{\texttt{ https\+://github.\+com/\+Live\+Liveta/\+Objektinis-\/\+Programavimas.\+git}}}
+\item Sukurkite projekto .exe faila, paleisdami {\ttfamily make} komanda projekto direktorijoje
+\item Paleiskite projekta, paleisdami {\ttfamily ./vektoriai} komanda
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Testai}{Testai}}\label{md__r_e_a_d_m_e_autotoc_md1}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysubsection{\texorpdfstring{Strategija 1, konteineris\+: vector, duomenu tipas\+: klase}{Strategija 1, konteineris\+: vector, duomenu tipas\+: klase}}\label{md__r_e_a_d_m_e_autotoc_md2}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-4}
+\endhead
+Studentu kiekis   &failo skaitymas   &failo rikiavimas   &failo filtravimas    \\\cline{1-4}
+1000   &0.\+0187384 s   &0.\+0025954 s   &0.\+001142 s    \\\cline{1-4}
+10000   &0.\+0464928 s   &0.\+0173884 s   &0.\+0080451 s    \\\cline{1-4}
+100000   &0.\+554703 s   &0.\+299301 s   &0.\+076983 s    \\\cline{1-4}
+1000000   &3.\+4679 s   &2.\+6752 s   &0.\+528214 s    \\\cline{1-4}
+10000000   &3.\+16855 s   &2.\+72026 s   &0.\+54384 s   \\\cline{1-4}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysubsection{\texorpdfstring{Strategija 1, konteineris\+: vector, duomenu tipas\+: struktura}{Strategija 1, konteineris\+: vector, duomenu tipas\+: struktura}}\label{md__r_e_a_d_m_e_autotoc_md3}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-4}
+\endhead
+Studentu kiekis   &Skaitymas   &Rikiavimas   &Skirstymas    \\\cline{1-4}
+1000   &0.\+0067999 s   &0.\+000899 s   &0.\+0004967 s    \\\cline{1-4}
+10000   &0.\+0451155 s   &0.\+0144912 s   &0.\+0055211 s    \\\cline{1-4}
+100000   &0.\+379105 s   &0.\+166723 s   &0.\+0503665 s    \\\cline{1-4}
+1000000   &3.\+25661 s   &1.\+66952 s   &0.\+473 s    \\\cline{1-4}
+10000000   &33.\+9667 s   &22.\+6545 s   &6.\+74625 s   \\\cline{1-4}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{\texorpdfstring{Optimizacija\+: O1}{Optimizacija\+: O1}}\label{md__r_e_a_d_m_e_autotoc_md4}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysubsubsection{\texorpdfstring{Strategija 1, konteineris\+: vector, duomenu tipas\+: struktura}{Strategija 1, konteineris\+: vector, duomenu tipas\+: struktura}}\label{md__r_e_a_d_m_e_autotoc_md5}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-4}
+\endhead
+Studentu kiekis   &failo skaitymas   &failo rikiavimas   &failo filtravimas    \\\cline{1-4}
+1000   &0.\+0064206 s   &0.\+0006721 s   &0.\+0004453 s    \\\cline{1-4}
+10000   &0.\+0630172 s   &0.\+0037798 s   &0.\+004321 s    \\\cline{1-4}
+100000   &0.\+491349 s   &0.\+0531723 s   &0.\+0415576 s    \\\cline{1-4}
+1000000   &3.\+50831 s   &0.\+442264 s   &0.\+323002 s    \\\cline{1-4}
+10000000   &3.\+51897 s   &0.\+351057 s   &0.\+288263 s   \\\cline{1-4}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsubsection{\texorpdfstring{Strategija 1, konteineris\+: vector, duomenu tipas\+: klase}{Strategija 1, konteineris\+: vector, duomenu tipas\+: klase}}\label{md__r_e_a_d_m_e_autotoc_md6}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-4}
+\endhead
+Studentu kiekis   &failo skaitymas   &failo rikiavimas   &failo filtravimas    \\\cline{1-4}
+1000   &0.\+0041683 s   &0.\+0007185 s   &0.\+0004925 s    \\\cline{1-4}
+10000   &0.\+0346105 s   &0.\+0063844 s   &0.\+00333 s    \\\cline{1-4}
+100000   &0.\+225924 s   &0.\+0731626 s   &0.\+0277155 s    \\\cline{1-4}
+1000000   &2.\+47328 s   &1.\+06697 s   &0.\+339018 s    \\\cline{1-4}
+10000000   &3.\+62191 s   &1.\+5846 s   &0.\+36761 s   \\\cline{1-4}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysubsection{\texorpdfstring{Optimizacija\+: O2}{Optimizacija\+: O2}}\label{md__r_e_a_d_m_e_autotoc_md7}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysubsubsection{\texorpdfstring{Strategija 1, konteineris\+: vector, duomenu tipas\+: struktura}{Strategija 1, konteineris\+: vector, duomenu tipas\+: struktura}}\label{md__r_e_a_d_m_e_autotoc_md8}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-4}
+\endhead
+Studentu kiekis   &failo skaitymas   &failo rikiavimas   &failo filtravimas    \\\cline{1-4}
+1000   &0.\+0101266 s   &0.\+0005713 s   &0.\+0006246 s    \\\cline{1-4}
+10000   &0.\+0275356 s   &0.\+0015958 s   &0.\+0026655 s    \\\cline{1-4}
+100000   &0.\+239583 s   &0.\+0266187 s   &0.\+0226893 s    \\\cline{1-4}
+1000000   &2.\+20875 s   &0.\+305261 s   &0.\+23545 s    \\\cline{1-4}
+10000000   &4.\+35964 s   &0.\+850409 s   &0.\+433324 s   \\\cline{1-4}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysubsubsection{\texorpdfstring{Strategija 1, konteineris\+: vector, duomenu tipas\+: klase}{Strategija 1, konteineris\+: vector, duomenu tipas\+: klase}}\label{md__r_e_a_d_m_e_autotoc_md9}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-4}
+\endhead
+Studentu kiekis   &failo skaitymas   &failo rikiavimas   &failo filtravimas    \\\cline{1-4}
+1000   &0.\+0032936 s   &0.\+0005334 s   &0.\+0006714 s    \\\cline{1-4}
+10000   &0.\+0493008 s   &0.\+0114337 s   &0.\+0065617 s    \\\cline{1-4}
+100000   &0.\+447514 s   &0.\+152694 s   &0.\+0603926 s    \\\cline{1-4}
+1000000   &4.\+67117 s   &1.\+98655 s   &0.\+563572 s    \\\cline{1-4}
+10000000   &4.\+95353 s   &1.\+89983 s   &0.\+423116 s   \\\cline{1-4}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysubsection{\texorpdfstring{Optimizacija\+: O3}{Optimizacija\+: O3}}\label{md__r_e_a_d_m_e_autotoc_md10}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md11}{}\doxysubsubsection{\texorpdfstring{Strategija 1, konteineris\+: vector, duomenu tipas\+: struktura}{Strategija 1, konteineris\+: vector, duomenu tipas\+: struktura}}\label{md__r_e_a_d_m_e_autotoc_md11}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-4}
+\endhead
+Studentu kiekis   &failo skaitymas   &failo rikiavimas   &failo filtravimas    \\\cline{1-4}
+1000   &0.\+0075853 s   &0.\+0005195 s   &0.\+0006241 s    \\\cline{1-4}
+10000   &0.\+0287904 s   &0.\+0025298 s   &0.\+0021945 s    \\\cline{1-4}
+100000   &0.\+235563 s   &0.\+0220492 s   &0.\+0218198 s    \\\cline{1-4}
+1000000   &2.\+67391 s   &0.\+281722 s   &0.\+254976 s    \\\cline{1-4}
+10000000   &3.\+97697 s   &0.\+518433 s   &0.\+417878 s   \\\cline{1-4}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysubsubsection{\texorpdfstring{Strategija 1, konteineris\+: vector, duomenu tipas\+: klase}{Strategija 1, konteineris\+: vector, duomenu tipas\+: klase}}\label{md__r_e_a_d_m_e_autotoc_md12}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-4}
+\endhead
+Studentu kiekis   &failo skaitymas   &failo rikiavimas   &failo filtravimas    \\\cline{1-4}
+1000   &0.\+0048808 s   &0.\+0008823 s   &0.\+0006448 s    \\\cline{1-4}
+10000   &0.\+0644253 s   &0.\+0124485 s   &0.\+0111525 s    \\\cline{1-4}
+100000   &0.\+455858 s   &0.\+132958 s   &0.\+0530912 s    \\\cline{1-4}
+1000000   &4.\+73698 s   &1.\+63243 s   &0.\+424595 s    \\\cline{1-4}
+10000000   &4.\+99333 s   &1.\+27652 s   &0.\+339926 s   \\\cline{1-4}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md13}{}\doxysubsection{\texorpdfstring{Failu dydziai\+:}{Failu dydziai\+:}}\label{md__r_e_a_d_m_e_autotoc_md13}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md14}{}\doxysubsubsection{\texorpdfstring{su strukturomis}{su strukturomis}}\label{md__r_e_a_d_m_e_autotoc_md14}
+vektoriai.\+exe \+: 622KB vektoriai\+\_\+\+O1.\+exe \+: 319KB vektoriai\+\_\+\+O2.\+exe \+: 298KB vektoriai\+\_\+\+O3.\+exe \+: 294KB\hypertarget{md__r_e_a_d_m_e_autotoc_md15}{}\doxysubsubsection{\texorpdfstring{su klasemis}{su klasemis}}\label{md__r_e_a_d_m_e_autotoc_md15}
+vektoriai.\+exe \+: 712KB vektoriai\+\_\+\+O1.\+exe \+: 349KB vektoriai\+\_\+\+O2.\+exe \+: 317KB vektoriai\+\_\+\+O3.\+exe \+: 310KB\hypertarget{md__r_e_a_d_m_e_autotoc_md16}{}\doxysection{\texorpdfstring{"{}\+Rule of Five"{}}{"{}\+Rule of Five"{}}}\label{md__r_e_a_d_m_e_autotoc_md16}
+{\bfseries{Kas yra "{}\+Rule of Five"{}?}} ~\newline
+ C++ kalboje, jei klasė valdo išteklius (pvz., dinaminę atmintį, failus ar pan.), reikia apibrėžti penkis specialius metodus\+:
+
+
+\begin{DoxyEnumerate}
+\item Destruktorius
+\item Kopijavimo konstruktorius
+\item Kopijavimo priskyrimo operatorius
+\item Perkėlimo konstruktorius
+\item Perkėlimo priskyrimo operatorius
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md18}{}\doxysubsection{\texorpdfstring{Kiekvieno metodo paaiškinimas}{Kiekvieno metodo paaiškinimas}}\label{md__r_e_a_d_m_e_autotoc_md18}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md19}{}\doxysubsubsection{\texorpdfstring{1. Destruktorius}{1. Destruktorius}}\label{md__r_e_a_d_m_e_autotoc_md19}
+{\bfseries{Paskirtis\+:}}
+
+
+\begin{DoxyItemize}
+\item Atlaisvina išteklius, kai objektas sunaikinamas.
+\end{DoxyItemize}
+
+{\bfseries{Pavyzdys\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Studentas::\string~Studentas()\ \{}
+\DoxyCodeLine{\ \ \ \ vardas.clear();}
+\DoxyCodeLine{\ \ \ \ pavarde.clear();}
+\DoxyCodeLine{\ \ \ \ pazymiai.clear();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md21}{}\doxysubsubsection{\texorpdfstring{2. Kopijavimo konstruktorius}{2. Kopijavimo konstruktorius}}\label{md__r_e_a_d_m_e_autotoc_md21}
+{\bfseries{Paskirtis\+:}}
+
+
+\begin{DoxyItemize}
+\item Sukuria naują objektą kaip tikslią kito objekto kopiją.
+\end{DoxyItemize}
+
+{\bfseries{Panaudojimas\+:}}
+
+
+\begin{DoxyItemize}
+\item Naudojamas, kai reikia nukopijuoti objektą, kad būtų sukurtas nepriklausomas jo dublikatas.
+\end{DoxyItemize}
+
+{\bfseries{Pavyzdys\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Studentas::Studentas(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ originalas)\ \{}
+\DoxyCodeLine{\ \ \ \ pavarde\ =\ originalas.pavarde;}
+\DoxyCodeLine{\ \ \ \ vardas\ =\ originalas.vardas;}
+\DoxyCodeLine{\ \ \ \ pazymiai\ =\ originalas.pazymiai;}
+\DoxyCodeLine{\ \ \ \ egzamino\_pazymys\ =\ originalas.egzamino\_pazymys;}
+\DoxyCodeLine{\ \ \ \ vidurkis\ =\ originalas.vidurkis;}
+\DoxyCodeLine{\ \ \ \ mediana\ =\ originalas.mediana;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md23}{}\doxysubsubsection{\texorpdfstring{3. Kopijavimo priskyrimo operatorius}{3. Kopijavimo priskyrimo operatorius}}\label{md__r_e_a_d_m_e_autotoc_md23}
+{\bfseries{Paskirtis\+:}}
+
+
+\begin{DoxyItemize}
+\item Pakeičia esamo objekto turinį kitu objektu.
+\end{DoxyItemize}
+
+{\bfseries{Panaudojimas\+:}}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily a = b;} kai abu objektai jau egzistuoja.
+\end{DoxyItemize}
+
+{\bfseries{Pavyzdys\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_studentas}{Studentas}}\&\ Studentas::operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ originalas)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&originalas)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ pavarde\ =\ originalas.pavarde;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ vardas\ =\ originalas.vardas;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ pazymiai\ =\ originalas.pazymiai;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ egzamino\_pazymys\ =\ originalas.egzamino\_pazymys;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ vidurkis\ =\ originalas.vidurkis;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ mediana\ =\ originalas.mediana;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md25}{}\doxysubsubsection{\texorpdfstring{4. Perkėlimo konstruktorius}{4. Perkėlimo konstruktorius}}\label{md__r_e_a_d_m_e_autotoc_md25}
+{\bfseries{Paskirtis\+:}}
+
+
+\begin{DoxyItemize}
+\item Sukuria naują objektą, "{}pavogdamas"{} išteklius iš kito objekto.
+\end{DoxyItemize}
+
+{\bfseries{Panaudojimas\+:}}
+
+
+\begin{DoxyItemize}
+\item Efektyvus darbas su laikinais objektais.
+\end{DoxyItemize}
+
+{\bfseries{Pavyzdys\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Studentas::Studentas(\mbox{\hyperlink{class_studentas}{Studentas}}\&\&\ originalas)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{\ \ \ \ pavarde\ =\ move(originalas.pavarde);}
+\DoxyCodeLine{\ \ \ \ vardas\ =\ move(originalas.vardas);}
+\DoxyCodeLine{\ \ \ \ pazymiai\ =\ move(originalas.pazymiai);}
+\DoxyCodeLine{\ \ \ \ egzamino\_pazymys\ =\ originalas.egzamino\_pazymys;}
+\DoxyCodeLine{\ \ \ \ vidurkis\ =\ originalas.vidurkis;}
+\DoxyCodeLine{\ \ \ \ mediana\ =\ originalas.mediana;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ originalas.egzamino\_pazymys\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ originalas.vidurkis\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ originalas.mediana\ =\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md27}{}\doxysubsubsection{\texorpdfstring{5. Perkėlimo priskyrimo operatorius}{5. Perkėlimo priskyrimo operatorius}}\label{md__r_e_a_d_m_e_autotoc_md27}
+{\bfseries{Paskirtis\+:}}
+
+
+\begin{DoxyItemize}
+\item Pakeičia objekto turinį, "{}pavogdamas"{} iš kito objekto išteklius.
+\end{DoxyItemize}
+
+{\bfseries{Panaudojimas\+:}}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily a = move(b);}
+\end{DoxyItemize}
+
+{\bfseries{Pavyzdys\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_studentas}{Studentas}}\&\ Studentas::operator=(\mbox{\hyperlink{class_studentas}{Studentas}}\&\&\ originalas)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&originalas)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ pavarde\ =\ move(originalas.pavarde);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ vardas\ =\ move(originalas.vardas);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ pazymiai\ =\ move(originalas.pazymiai);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ egzamino\_pazymys\ =\ originalas.egzamino\_pazymys;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ vidurkis\ =\ originalas.vidurkis;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ mediana\ =\ originalas.mediana;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ originalas.egzamino\_pazymys\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ originalas.vidurkis\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ originalas.mediana\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md29}{}\doxysection{\texorpdfstring{Operatorių perdengimas (\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} ir \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>})}{Operatorių perdengimas (\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} ir \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>})}}\label{md__r_e_a_d_m_e_autotoc_md29}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md30}{}\doxysubsection{\texorpdfstring{👇 Kas tai yra?}{👇 Kas tai yra?}}\label{md__r_e_a_d_m_e_autotoc_md30}
+Operatorių perdengimas leidžia nustatyti, kaip objektai yra skaitomi iš srauto ({\ttfamily \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}}) ir spausdinami į srautą ({\ttfamily \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}}). Tai leidžia naudoti paprastą sintaksę kaip {\ttfamily cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} objektas;} arba {\ttfamily cin \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} objektas;}.
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md32}{}\doxysubsection{\texorpdfstring{Perdengimų paaiškinimai}{Perdengimų paaiškinimai}}\label{md__r_e_a_d_m_e_autotoc_md32}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md33}{}\doxysubsubsection{\texorpdfstring{1. Įvesties operatorius {\ttfamily \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}}}{1. Įvesties operatorius {\ttfamily \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}}}}\label{md__r_e_a_d_m_e_autotoc_md33}
+{\bfseries{Paskirtis\+:}}
+
+
+\begin{DoxyItemize}
+\item Nuskaito {\ttfamily \doxylink{class_studentas}{Studentas}} objekto duomenis iš vartotojo arba failo.
+\end{DoxyItemize}
+
+{\bfseries{Pavyzdys\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{istream\&\ operator>>(istream\&\ isvesties\_vieta,\ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ studentas)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Įveskite\ vardą:\ "{}};}
+\DoxyCodeLine{\ \ \ \ isvesties\_vieta\ >>\ studentas.vardas;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Įveskite\ pavardę:\ "{}};}
+\DoxyCodeLine{\ \ \ \ isvesties\_vieta\ >>\ studentas.pavarde;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Įveskite\ pažymių\ kiekį:\ "{}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ kiekis;}
+\DoxyCodeLine{\ \ \ \ isvesties\_vieta\ >>\ kiekis;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ studentas.pazymiai.clear();}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Įveskite\ pažymius:\ "{}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ kiekis;\ ++i)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pazymys;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ isvesties\_vieta\ >>\ pazymys;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ studentas.pazymiai.push\_back(pazymys);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Įveskite\ egzamino\ pažymį:\ "{}};}
+\DoxyCodeLine{\ \ \ \ isvesties\_vieta\ >>\ studentas.egzamino\_pazymys;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ studentas.vidurkio\_skaiciavimas();}
+\DoxyCodeLine{\ \ \ \ studentas.medianos\_skaiciavimas();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ isvesties\_vieta;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md35}{}\doxysubsubsection{\texorpdfstring{2. Išvesties operatorius {\ttfamily \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}}}{2. Išvesties operatorius {\ttfamily \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}}}}\label{md__r_e_a_d_m_e_autotoc_md35}
+{\bfseries{Paskirtis\+:}}
+
+
+\begin{DoxyItemize}
+\item Išveda {\ttfamily \doxylink{class_studentas}{Studentas}} objekto duomenis į ekraną arba failą.
+\end{DoxyItemize}
+
+{\bfseries{Pavyzdys\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ostream\&\ operator<<(ostream\&\ isvesties\_vieta,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ studentas)\ \{}
+\DoxyCodeLine{\ \ \ \ isvesties\_vieta\ <<\ studentas.vardas\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ studentas.pavarde\ <<\ \textcolor{stringliteral}{"{}\ |\ Pažymiai:\ "{}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ pazymys\ :\ studentas.pazymiai)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ isvesties\_vieta\ <<\ pazymys\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ isvesties\_vieta\ <<\ \textcolor{stringliteral}{"{}|\ Egzaminas:\ "{}}\ <<\ studentas.egzamino\_pazymys;}
+\DoxyCodeLine{\ \ \ \ isvesties\_vieta\ <<\ \textcolor{stringliteral}{"{}\ |\ Vidurkis:\ "{}}\ <<\ studentas.vidurkis;}
+\DoxyCodeLine{\ \ \ \ isvesties\_vieta\ <<\ \textcolor{stringliteral}{"{}\ |\ Mediana:\ "{}}\ <<\ studentas.mediana;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ isvesties\_vieta;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md37}{}\doxysection{\texorpdfstring{Santrauka}{Santrauka}}\label{md__r_e_a_d_m_e_autotoc_md37}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Koncepcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Paskirtis   }&\cellcolor{\tableheadbgcolor}\textbf{ Pavyzdys    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Koncepcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Paskirtis   }&\cellcolor{\tableheadbgcolor}\textbf{ Pavyzdys    }\\\cline{1-3}
+\endhead
+Destruktorius   &Atlaisvina išteklius sunaikinant objektą   &\texorpdfstring{$\sim$}{\string~}\+Studentas()    \\\cline{1-3}
+Kopijavimo konstruktorius   &Sukuria naują kopiją   &\doxylink{class_studentas}{Studentas} b = a;    \\\cline{1-3}
+Kopijavimo priskyrimas   &Pakeičia objekto turinį kitu   &b = a;    \\\cline{1-3}
+Perkėlimo konstruktorius   &Pavogia išteklius iš kito objekto   &\doxylink{class_studentas}{Studentas} b = move(a);    \\\cline{1-3}
+Perkėlimo priskyrimas   &Pavogia išteklius per priskyrimą   &b = move(a);    \\\cline{1-3}
+Išvesties operatorius {\ttfamily \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}}   &Išveda objektą į ekraną arba failą   &cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} studentas;    \\\cline{1-3}
+Įvesties operatorius {\ttfamily \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}}   &Nuskaityti objektą iš vartotojo ar failo   &cin \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} studentas;   \\\cline{1-3}
+\end{longtabu}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md39}{}\doxysection{\texorpdfstring{Abstrakčios klasės}{Abstrakčios klasės}}\label{md__r_e_a_d_m_e_autotoc_md39}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md40}{}\doxysubsection{\texorpdfstring{Kas yra abstrakti klasė?}{Kas yra abstrakti klasė?}}\label{md__r_e_a_d_m_e_autotoc_md40}
+Abstrakti klasė yra tokia klasė, kuri aprašo bendras sąvokas ir turi bent vieną abstraktų metodą (be implementacijos). Tokia klasė negali būti sukuriama tiesiogiai, ji naudojama kaip bazė kitoms klasėms paveldėti ir konkretizuoti elgesį.
+
+Abstrakčios klasės tikslas -\/ apibrėžti, kokias funkcijas turi įgyvendinti paveldėtos klasės, paliekant realizacijos detales joms pačioms.\hypertarget{md__r_e_a_d_m_e_autotoc_md41}{}\doxysubsection{\texorpdfstring{Dabartinė {\ttfamily Zmogus} klasės implementacija}{Dabartinė {\ttfamily Zmogus} klasės implementacija}}\label{md__r_e_a_d_m_e_autotoc_md41}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{class_zmogus}{Zmogus}}\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ prisistatymas()\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \string~Zmogus()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md42}{}\doxysubsubsection{\texorpdfstring{Komentaras apie implementaciją\+:}{Komentaras apie implementaciją\+:}}\label{md__r_e_a_d_m_e_autotoc_md42}
+
+\begin{DoxyItemize}
+\item {\ttfamily prisistatymas()} yra {\bfseries{grynas virtualus metodas}} ({\ttfamily = 0}), kuris reiškia, kad {\bfseries{kiekviena paveldinti klasė}} privalo įgyvendinti savo prisistatymo logiką.
+\item {\ttfamily virtual \texorpdfstring{$\sim$}{\string~}\+Zmogus() = default;} garantuoja, kad sunaikinant išvestinės klasės objektą bus teisingai kviečiamas destruktorius.
+\end{DoxyItemize}
+
+Ši bazinė struktūra yra kaip pagrindas, leidžiantis kurti ivairias {\ttfamily \doxylink{class_zmogus}{Zmogus}} klases, tokias kaip {\ttfamily \doxylink{class_studentas}{Studentas}}, {\ttfamily Darbuotojas} ir pan., priversdama jas implementuoti savo {\ttfamily prisistatymas()} metodo.\hypertarget{md__r_e_a_d_m_e_autotoc_md43}{}\doxysubsection{\texorpdfstring{Testai}{Testai}}\label{md__r_e_a_d_m_e_autotoc_md43}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md44}{}\doxysubsubsection{\texorpdfstring{std\+::vector ir mano Vektorius push\+\_\+back() greitis ir perskirstymo greitis}{std\+::vector ir mano Vektorius push\+\_\+back() greitis ir perskirstymo greitis}}\label{md__r_e_a_d_m_e_autotoc_md44}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Studentu kiekis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ std\+::vector laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Mano \doxylink{class_vektorius}{Vektorius} laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ std\+::vector perskirstymas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Mano \doxylink{class_vektorius}{Vektorius} perskirstymas    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Studentu kiekis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ std\+::vector laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Mano \doxylink{class_vektorius}{Vektorius} laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ std\+::vector perskirstymas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Mano \doxylink{class_vektorius}{Vektorius} perskirstymas    }\\\cline{1-5}
+\endhead
+10000   &0 s   &0 s   &15   &10    \\\cline{1-5}
+100000   &0.\+001794 s   &0.\+001915 s   &18   &14    \\\cline{1-5}
+1000000   &0.\+021624 s   &0.\+016285 s   &21   &17    \\\cline{1-5}
+10000000   &0.\+201588 s   &0.\+134709 s   &25   &20    \\\cline{1-5}
+100000000   &2.\+1565s   &1.\+79215s   &28   &24   \\\cline{1-5}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md45}{}\doxysubsubsection{\texorpdfstring{std\+::vector ir mano Vektorius failo generavimas}{std\+::vector ir mano Vektorius failo generavimas}}\label{md__r_e_a_d_m_e_autotoc_md45}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Studentu kiekis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ std\+::vector laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Mano \doxylink{class_vektorius}{Vektorius} laikas    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Studentu kiekis   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ std\+::vector laikas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Mano \doxylink{class_vektorius}{Vektorius} laikas    }\\\cline{1-3}
+\endhead
+1000   &0.\+014633s   &0.\+013252s    \\\cline{1-3}
+10000   &0.\+137478s   &0.\+104858s    \\\cline{1-3}
+100000   &0.\+968856s   &1.\+06672s    \\\cline{1-3}
+1000000   &9.\+64237s   &10.\+2498s    \\\cline{1-3}
+10000000   &117.\+642s   &106.\+34815s   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md46}{}\doxysubsubsection{\texorpdfstring{std\+::vector ir mano Vektorius failo read/sort/divide greitis}{std\+::vector ir mano Vektorius failo read/sort/divide greitis}}\label{md__r_e_a_d_m_e_autotoc_md46}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{6}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ std\+::vector   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1000 studentai   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 10000 studentai   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 100000 studentai   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1000000 studentai   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 10000000 studentai    }\\\cline{1-6}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ std\+::vector   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1000 studentai   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 10000 studentai   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 100000 studentai   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1000000 studentai   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 10000000 studentai    }\\\cline{1-6}
+\endhead
+Failo skaitymas\+:   &0.\+08294s   &0.\+165984s   &1.\+542088s   &15.\+41559s   &165.\+246s    \\\cline{1-6}
+Rūšiavimas\+:   &0.\+005981s   &0.\+0560194s   &0.\+5255879s   &6.\+19015s   &60.\+56389s    \\\cline{1-6}
+Filtravimas\+:   &0.\+0019701s   &0.\+0088287s   &0.\+0874609s   &1.\+12756s   &11.\+3952s   \\\cline{1-6}
+\end{longtabu}
+
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{6}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Mano \doxylink{class_vektorius}{Vektorius}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1000 studentai   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 10000 studentai   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 100000 studentai   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1000000 studentai   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 10000000 studentai    }\\\cline{1-6}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Mano \doxylink{class_vektorius}{Vektorius}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1000 studentai   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 10000 studentai   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 100000 studentai   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1000000 studentai   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 10000000 studentai    }\\\cline{1-6}
+\endhead
+Failo skaitymas\+:   &0.\+0089653s   &0.\+08539s   &0.\+8317273s   &8.\+32632s   &84.\+6576s    \\\cline{1-6}
+Rūšiavimas\+:   &0.\+003841s   &0.\+0927s   &0.\+4375459s   &5.\+6459764s   &58.\+65171s    \\\cline{1-6}
+Filtravimas\+:   &0.\+000958s   &0.\+01088s   &0.\+099862s   &1.\+096143s   &11.\+39709s   \\\cline{1-6}
+\end{longtabu}

@@ -1,0 +1,292 @@
+\doxysection{mano\+Vektorius.\+h}
+\hypertarget{mano_vektorius_8h_source}{}\label{mano_vektorius_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MANOVEKTORIUS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MANOVEKTORIUS\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}pagalbines.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }Vektorius\{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00009\ \ \ \ \ ElementoTipas*\ masyvas;}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ dydis;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ talpa;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ reallocate(\textcolor{keywordtype}{size\_t}\ naujaTalpa);}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//\ The\ rule\ of\ five}}
+\DoxyCodeLine{00017\ \ \ \ \ Vektorius();}
+\DoxyCodeLine{00018\ \ \ \ \ \string~Vektorius();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ Vektorius(\textcolor{keyword}{const}\ Vektorius\&\ pagrindinis);\ \textcolor{comment}{//\ Copy\ constructor}}
+\DoxyCodeLine{00021\ \ \ \ \ Vektorius\&\ operator=(\textcolor{keyword}{const}\ Vektorius\&\ pagrindinis);\ \textcolor{comment}{//\ Copy\ assignment\ operator}}
+\DoxyCodeLine{00022\ \ \ \ \ Vektorius(Vektorius\&\&\ pagrindinis)\ \textcolor{keyword}{noexcept};\ \textcolor{comment}{//\ Move\ constructor}}
+\DoxyCodeLine{00023\ \ \ \ \ Vektorius\&\ operator=(Vektorius\&\&\ pagrindinis)\ \textcolor{keyword}{noexcept};\ \textcolor{comment}{//\ Move\ assignment\ operator}}
+\DoxyCodeLine{00024\ \ \ \ \ Vektorius(ElementoTipas*\ first,\ ElementoTipas*\ last);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ operators}}
+\DoxyCodeLine{00027\ \ \ \ \ ElementoTipas\&\ operator[](\textcolor{keywordtype}{size\_t}\ index);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{const}\ ElementoTipas\&\ operator[](\textcolor{keywordtype}{size\_t}\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ getters}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ size()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ capacity()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ itterators}}
+\DoxyCodeLine{00035\ \ \ \ \ ElementoTipas*\ begin()\ \{\ \textcolor{keywordflow}{return}\ masyvas;\ \}}
+\DoxyCodeLine{00036\ \ \ \ \ ElementoTipas*\ end()\ \{\ \textcolor{keywordflow}{return}\ masyvas\ +\ dydis;\ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ ElementoTipas*\ begin()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ masyvas;\ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{const}\ ElementoTipas*\ end()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ masyvas\ +\ dydis;\ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ ElementoTipas\&\ front()\ \{\ \textcolor{keywordflow}{return}\ masyvas[0];\ \}}
+\DoxyCodeLine{00042\ \ \ \ \ ElementoTipas\&\ back()\ \ \{\ \textcolor{keywordflow}{return}\ masyvas[dydis\ -\/\ 1];\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{const}\ ElementoTipas\&\ front()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ masyvas[0];\ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{const}\ ElementoTipas\&\ back()\textcolor{keyword}{\ const\ \ }\{\ \textcolor{keywordflow}{return}\ masyvas[dydis\ -\/\ 1];\ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ push\_back(\textcolor{keyword}{const}\ ElementoTipas\&\ elementas);}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ pop\_back();}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{bool}\ empty()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ dydis\ ==\ 0;\ \}}
+\DoxyCodeLine{00051\ \ \ \ \ ElementoTipas\&\ at(\textcolor{keywordtype}{size\_t}\ index);}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ clear();}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ shrink\_to\_fit();}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ reserve(\textcolor{keywordtype}{size\_t}\ naujaTalpa);}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ erase(\textcolor{keywordtype}{size\_t}\ index);}
+\DoxyCodeLine{00056\ \ \ \ \ ElementoTipas*\ erase(ElementoTipas*\ it);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00062\ Vektorius<ElementoTipas>::Vektorius()\{}
+\DoxyCodeLine{00063\ \ \ \ \ talpa\ =\ 10;}
+\DoxyCodeLine{00064\ \ \ \ \ dydis\ =\ 0;}
+\DoxyCodeLine{00065\ \ \ \ \ masyvas\ =\ \textcolor{keyword}{new}\ ElementoTipas[talpa];}
+\DoxyCodeLine{00066\ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00069\ Vektorius<ElementoTipas>::\string~Vektorius()\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{delete}[]\ masyvas;}
+\DoxyCodeLine{00071\ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00074\ Vektorius<ElementoTipas>::Vektorius(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vektorius}{Vektorius}}\&\ pagrindinis)\{}
+\DoxyCodeLine{00075\ \ \ \ \ dydis\ =\ pagrindinis.dydis;}
+\DoxyCodeLine{00076\ \ \ \ \ talpa\ =\ pagrindinis.talpa;}
+\DoxyCodeLine{00077\ \ \ \ \ masyvas\ =\ \textcolor{keyword}{new}\ ElementoTipas[talpa];}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ dydis;\ ++i)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ masyvas[i]\ =\ pagrindinis.masyvas[i];}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{comment}{//\ Copy\ assignment\ operator}}
+\DoxyCodeLine{00085\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00086\ \mbox{\hyperlink{class_vektorius}{Vektorius<ElementoTipas>}}\&\ Vektorius<ElementoTipas>::operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vektorius}{Vektorius}}\&\ pagrindinis)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&pagrindinis)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \textcolor{comment}{//\ Self-\/assignment\ check}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{delete}[]\ masyvas;\ \textcolor{comment}{//\ Free\ existing\ memory}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ dydis\ =\ pagrindinis.dydis;}
+\DoxyCodeLine{00092\ \ \ \ \ talpa\ =\ pagrindinis.talpa;}
+\DoxyCodeLine{00093\ \ \ \ \ masyvas\ =\ \textcolor{keyword}{new}\ ElementoTipas[talpa];}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ dydis;\ ++i)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ masyvas[i]\ =\ pagrindinis.masyvas[i];}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00100\ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{comment}{//\ Move\ constructor}}
+\DoxyCodeLine{00103\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00104\ Vektorius<ElementoTipas>::Vektorius(\mbox{\hyperlink{class_vektorius}{Vektorius}}\&\&\ pagrindinis)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ talpa\ =\ pagrindinis.talpa;}
+\DoxyCodeLine{00106\ \ \ \ \ dydis\ =\ pagrindinis.dydis;}
+\DoxyCodeLine{00107\ \ \ \ \ masyvas\ =\ pagrindinis.masyvas;\ \textcolor{comment}{//naujo\ masyvo\ rodykle\ yra\ pagrindinio\ rodykle.}}
+\DoxyCodeLine{00108\ \ \ \ \ }
+\DoxyCodeLine{00109\ \ \ \ \ pagrindinis.masyvas\ =\ \textcolor{keyword}{nullptr};\ \textcolor{comment}{//\ pagrindine\ rodykle\ neberodo\ i\ nieka.}}
+\DoxyCodeLine{00110\ \ \ \ \ pagrindinis.dydis\ =\ 0;}
+\DoxyCodeLine{00111\ \ \ \ \ pagrindinis.talpa\ =\ 0;}
+\DoxyCodeLine{00112\ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{comment}{//\ Move\ assignment\ operator}}
+\DoxyCodeLine{00115\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00116\ \mbox{\hyperlink{class_vektorius}{Vektorius<ElementoTipas>}}\&\ Vektorius<ElementoTipas>::operator=(\mbox{\hyperlink{class_vektorius}{Vektorius}}\&\&\ pagrindinis)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&pagrindinis)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \textcolor{comment}{//\ Self-\/assignment\ check}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{delete}[]\ masyvas;\ \textcolor{comment}{//\ Release\ the\ current\ memory}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ masyvas\ =\ pagrindinis.masyvas;\ \textcolor{comment}{//\ Take\ ownership\ of\ the\ pagrindinis\ vector's\ data}}
+\DoxyCodeLine{00122\ \ \ \ \ dydis\ =\ pagrindinis.dydis;}
+\DoxyCodeLine{00123\ \ \ \ \ talpa\ =\ pagrindinis.talpa;}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ pagrindinis.masyvas\ =\ \textcolor{keyword}{nullptr};\ \textcolor{comment}{//\ Reset\ the\ pagrindinis\ vector}}
+\DoxyCodeLine{00126\ \ \ \ \ pagrindinis.dydis\ =\ 0;}
+\DoxyCodeLine{00127\ \ \ \ \ pagrindinis.talpa\ =\ 0;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00130\ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00133\ \textcolor{keywordtype}{size\_t}\ Vektorius<ElementoTipas>::size()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{return}\ dydis;}
+\DoxyCodeLine{00135\ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00138\ \textcolor{keywordtype}{size\_t}\ Vektorius<ElementoTipas>::capacity()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordflow}{return}\ talpa;}
+\DoxyCodeLine{00140\ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00143\ \textcolor{keywordtype}{void}\ Vektorius<ElementoTipas>::reallocate(\textcolor{keywordtype}{size\_t}\ naujaTalpa)\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ ElementoTipas*\ newArray\ =\ \textcolor{keyword}{new}\ ElementoTipas[naujaTalpa];}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ dydis;\ ++i)\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ newArray[i]\ =\ masyvas[i];}
+\DoxyCodeLine{00148\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{delete}[]\ masyvas;}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ masyvas\ =\ newArray;}
+\DoxyCodeLine{00153\ \ \ \ \ talpa\ =\ naujaTalpa;}
+\DoxyCodeLine{00154\ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00157\ \textcolor{keywordtype}{void}\ Vektorius<ElementoTipas>::push\_back(\textcolor{keyword}{const}\ ElementoTipas\&\ elementas)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordflow}{if}(dydis\ ==\ talpa)}
+\DoxyCodeLine{00159\ \ \ \ \ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ reallocate(talpa\ *\ 2);\ \textcolor{comment}{//\ padvigubina\ dabartine\ talpa}}
+\DoxyCodeLine{00161\ \ \ \ \ \}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ masyvas[dydis]\ =\ elementas;}
+\DoxyCodeLine{00164\ \ \ \ \ ++dydis;}
+\DoxyCodeLine{00165\ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00169\ \textcolor{keywordtype}{void}\ Vektorius<ElementoTipas>::pop\_back()\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordflow}{if}\ (dydis\ >\ 0)\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ -\/-\/dydis;}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+\DoxyCodeLine{00173\ \}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00176\ ElementoTipas\&\ Vektorius<ElementoTipas>::operator[](\textcolor{keywordtype}{size\_t}\ index)\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordflow}{return}\ masyvas[index];}
+\DoxyCodeLine{00178\ \}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00181\ \textcolor{keyword}{const}\ ElementoTipas\&\ Vektorius<ElementoTipas>::operator[](\textcolor{keywordtype}{size\_t}\ index)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordflow}{return}\ masyvas[index];}
+\DoxyCodeLine{00183\ \}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00186\ ElementoTipas\&\ Vektorius<ElementoTipas>::at(\textcolor{keywordtype}{size\_t}\ index)\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >=\ dydis)\ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ out\_of\_range(\textcolor{stringliteral}{"{}Index\ is\ out\ of\ range."{}});}
+\DoxyCodeLine{00189\ \ \ \ \ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordflow}{return}\ masyvas[index];}
+\DoxyCodeLine{00192\ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00196\ \textcolor{keywordtype}{void}\ Vektorius<ElementoTipas>::clear()\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (!std::is\_trivially\_destructible<ElementoTipas>::value)\ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ dydis;\ ++i)\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ masyvas[i].\string~ElementoTipas();\ \ \textcolor{comment}{//\ aunaikina\ kiekviena\ elementa}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00201\ \ \ \ \ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ dydis\ =\ 0;}
+\DoxyCodeLine{00204\ \}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00207\ \textcolor{keywordtype}{void}\ Vektorius<ElementoTipas>::shrink\_to\_fit()\ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordflow}{if}\ (dydis\ <\ talpa)\ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ reallocate(dydis);}
+\DoxyCodeLine{00210\ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \}}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00214\ \textcolor{keywordtype}{void}\ Vektorius<ElementoTipas>::reserve(\textcolor{keywordtype}{size\_t}\ naujaTalpa)\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordflow}{if}\ (naujaTalpa\ >\ talpa)\ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ reallocate(naujaTalpa);}
+\DoxyCodeLine{00217\ \ \ \ \ \}}
+\DoxyCodeLine{00218\ \}}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00221\ \textcolor{keywordtype}{void}\ Vektorius<ElementoTipas>::erase(\textcolor{keywordtype}{size\_t}\ index)\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >=\ dydis)\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ out\_of\_range(\textcolor{stringliteral}{"{}Index\ out\ of\ range\ in\ erase()"{}});}
+\DoxyCodeLine{00224\ \ \ \ \ \}}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (!std::is\_trivially\_destructible<ElementoTipas>::value)\ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ masyvas[index].\string~ElementoTipas();\ \ \textcolor{comment}{//\ sunaikina\ istrinta\ elementa\ jei\ reikia}}
+\DoxyCodeLine{00228\ \ \ \ \ \}}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{comment}{//\ Visus\ elementus\ perstumia\ i\ kaite\ puse\ nuo\ index+1\ iki\ galo}}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ index;\ i\ <\ dydis\ -\/\ 1;\ ++i)\ \{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ masyvas[i]\ =\ move(masyvas[i\ +\ 1]);}
+\DoxyCodeLine{00233\ \ \ \ \ \}}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ -\/-\/dydis;}
+\DoxyCodeLine{00236\ \}}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00239\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vektorius}{Vektorius<ElementoTipas>}}\&\ lhs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_vektorius}{Vektorius<ElementoTipas>}}\&\ rhs)\ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordflow}{if}\ (lhs.size()\ !=\ rhs.size())\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ lhs.size();\ ++i)\ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lhs[i]\ !=\ rhs[i])\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00244\ \ \ \ \ \}}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00247\ \}}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00250\ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vektorius}{Vektorius<ElementoTipas>}}\&\ lhs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_vektorius}{Vektorius<ElementoTipas>}}\&\ rhs)\ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordflow}{return}\ !(lhs\ ==\ rhs);}
+\DoxyCodeLine{00252\ \}}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00255\ \textcolor{keywordtype}{bool}\ operator<(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vektorius}{Vektorius<ElementoTipas>}}\&\ lhs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_vektorius}{Vektorius<ElementoTipas>}}\&\ rhs)\ \{}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ minSize\ =\ (lhs.size()\ <\ rhs.size())\ ?\ lhs.size()\ :\ rhs.size();}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ minSize;\ ++i)\ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lhs[i]\ <\ rhs[i])\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lhs[i]\ >\ rhs[i])\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00261\ \ \ \ \ \}}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keywordflow}{return}\ lhs.size()\ <\ rhs.size();}
+\DoxyCodeLine{00264\ \}}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00267\ \textcolor{keywordtype}{bool}\ operator>(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vektorius}{Vektorius<ElementoTipas>}}\&\ lhs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_vektorius}{Vektorius<ElementoTipas>}}\&\ rhs)\ \{}
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keywordflow}{return}\ rhs\ <\ lhs;}
+\DoxyCodeLine{00269\ \}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00272\ Vektorius<ElementoTipas>::Vektorius(ElementoTipas*\ pradzia,\ ElementoTipas*\ pabaiga)\ \{}
+\DoxyCodeLine{00273\ \ \ \ \ dydis\ =\ pabaiga\ -\/\ pradzia;}
+\DoxyCodeLine{00274\ \ \ \ \ talpa\ =\ dydis;}
+\DoxyCodeLine{00275\ \ \ \ \ masyvas\ =\ \textcolor{keyword}{new}\ ElementoTipas[talpa];}
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ dydis;\ ++i)\ \{}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ masyvas[i]\ =\ pradzia[i];}
+\DoxyCodeLine{00278\ \ \ \ \ \}}
+\DoxyCodeLine{00279\ \}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ElementoTipas>}
+\DoxyCodeLine{00282\ ElementoTipas*\ Vektorius<ElementoTipas>::erase(ElementoTipas*\ it)\ \ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ index\ =\ it\ -\/\ masyvas;}
+\DoxyCodeLine{00284\ \ \ \ \ erase(index);}
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keywordflow}{return}\ masyvas\ +\ index;}
+\DoxyCodeLine{00286\ \}}
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
