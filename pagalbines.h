@@ -19,6 +19,7 @@
 #include <type_traits>
 #include <cstddef>
 #include <stdexcept>
+#include <initializer_list>
 
 
 using std:: cout;
@@ -60,3 +61,4 @@ using std:: istream;
 using std::chrono::round;
 using std:: out_of_range;
 using std:: stable_partition;
+using std::initializer_list;

@@ -21,7 +21,11 @@ public:
     Vektorius& operator=(const Vektorius& pagrindinis); // Copy assignment operator
     Vektorius(Vektorius&& pagrindinis) noexcept; // Move constructor
     Vektorius& operator=(Vektorius&& pagrindinis) noexcept; // Move assignment operator
-    Vektorius(ElementoTipas* first, ElementoTipas* last); 
+    Vektorius(ElementoTipas* first, ElementoTipas* last);
+
+    Vektorius(size_t count, const ElementoTipas& value);
+    Vektorius(initializer_list<ElementoTipas> initList);
+    Vektorius(size_t count);
 
     // operators
     ElementoTipas& operator[](size_t index);
@@ -54,6 +58,8 @@ public:
     void reserve(size_t naujaTalpa);
     void erase(size_t index);
     ElementoTipas* erase(ElementoTipas* it);
+    ElementoTipas* data();
+    const ElementoTipas* data() const;
 
 };
 
@@ -109,6 +115,47 @@ Vektorius<ElementoTipas>::Vektorius(Vektorius&& pagrindinis) noexcept {
     pagrindinis.masyvas = nullptr; // pagrindine rodykle neberodo i nieka.
     pagrindinis.dydis = 0;
     pagrindinis.talpa = 0;
+}
+
+
+// Fill constructor
+template <typename ElementoTipas>
+Vektorius<ElementoTipas>::Vektorius(size_t count, const ElementoTipas& value) {
+    dydis = count;
+    talpa = count;
+    masyvas = new ElementoTipas[talpa];
+    for (size_t i = 0; i < dydis; ++i) {
+        masyvas[i] = value;
+    }
+}
+
+// Initializer list constructor
+template <typename ElementoTipas>
+Vektorius<ElementoTipas>::Vektorius(initializer_list<ElementoTipas> initList) {
+    dydis = initList.size();
+    talpa = dydis;
+    masyvas = new ElementoTipas[talpa];
+    size_t i = 0;
+    for (const auto& elem : initList) {
+        masyvas[i++] = elem;
+    }
+}
+
+template <typename ElementoTipas>
+Vektorius<ElementoTipas>::Vektorius(size_t count) {
+    dydis = 0;
+    talpa = count;
+    masyvas = new ElementoTipas[talpa];
+}
+
+template <typename ElementoTipas>
+ElementoTipas* Vektorius<ElementoTipas>::data() {
+    return masyvas;
+}
+
+template <typename ElementoTipas>
+const ElementoTipas* Vektorius<ElementoTipas>::data() const {
+    return masyvas;
 }
 
 // Move assignment operator
@@ -266,6 +313,17 @@ bool operator<(const Vektorius<ElementoTipas>& lhs, const Vektorius<ElementoTipa
 template <typename ElementoTipas>
 bool operator>(const Vektorius<ElementoTipas>& lhs, const Vektorius<ElementoTipas>& rhs) {
     return rhs < lhs;
+}
+
+
+template <typename T>
+bool operator<=(const Vektorius<T>& lhs, const Vektorius<T>& rhs) {
+    return !(rhs < lhs);
+}
+
+template <typename T>
+bool operator>=(const Vektorius<T>& lhs, const Vektorius<T>& rhs) {
+    return !(lhs < rhs);
 }
 
 template <typename ElementoTipas>

@@ -40,7 +40,7 @@ TEST_CASE("Perkėlimo konstruktorius ir priskyrimas") {
     REQUIRE(v2[0] == 1);
     REQUIRE(v2[1] == 2);
 
-    REQUIRE(v1.begin() == nullptr);
+    REQUIRE(v1.data() == nullptr);
 }
 
 TEST_CASE("Konstruktorius iš rodyklių intervalo") {
@@ -138,4 +138,28 @@ TEST_CASE("Iteratorių palaikymas") {
         suma += *it;
     }
     REQUIRE(suma == 6);
+}
+
+TEST_CASE("Konstruktorius, kuris leidzia sukurti vektoriu su norima vieta") {
+    Vektorius<int> v(4);
+    REQUIRE(v.size() == 4);
+}
+
+TEST_CASE("Konstruktorius, kuris leidzia sukurti vektoriu ir iskarto i ji ideti norimus elementus") {
+    Vektorius<int> v {1, 2, 3};
+
+    REQUIRE(v.size() == 3);
+    REQUIRE(v[0] == 1);
+    REQUIRE(v[1] == 2);
+    REQUIRE(v[2] == 3);
+}
+
+TEST_CASE("Konstruktorius, kuris leidzia ideti norima elementa n kartu i vektoriu") {
+    Vektorius<int> v(5, 42); 
+
+    REQUIRE(v.size() == 5);
+
+    for (size_t i = 0; i < v.size(); ++i) {
+        REQUIRE(v[i] == 42);
+    }
 }
