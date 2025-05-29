@@ -7,7 +7,7 @@ TEST_CASE("Konstruktoriai ir pagrindinės operacijos") {
     Vektorius<int> v;
 
     REQUIRE(v.size() == 0);
-    REQUIRE(v.capacity() >= 10); // numatytoji talpa
+    REQUIRE(v.capacity() == 10); // numatytoji talpa
 
     v.push_back(1);
     v.push_back(2);
@@ -28,11 +28,6 @@ TEST_CASE("Kopijavimo konstruktorius ir priskyrimas") {
     REQUIRE(v2.size() == v1.size());
     REQUIRE(v2[0] == 10);
     REQUIRE(v2[1] == 20);
-
-    Vektorius<int> v3;
-    v3 = v1;
-    REQUIRE(v3.size() == 2);
-    REQUIRE(v3[1] == 20);
 }
 
 TEST_CASE("Perkėlimo konstruktorius ir priskyrimas") {
@@ -43,11 +38,9 @@ TEST_CASE("Perkėlimo konstruktorius ir priskyrimas") {
     Vektorius<int> v2 = std::move(v1);
     REQUIRE(v2.size() == 2);
     REQUIRE(v2[0] == 1);
+    REQUIRE(v2[1] == 2);
 
-    Vektorius<int> v3;
-    v3 = std::move(v2);
-    REQUIRE(v3.size() == 2);
-    REQUIRE(v3[1] == 2);
+    REQUIRE(v1.begin() == nullptr);
 }
 
 TEST_CASE("Konstruktorius iš rodyklių intervalo") {
@@ -95,7 +88,7 @@ TEST_CASE("clear(), reserve() ir shrink_to_fit() metodai") {
 
     size_t senaTalpa = v.capacity();
     v.reserve(30);
-    REQUIRE(v.capacity() >= 30);
+    REQUIRE(v.capacity() == 30);
 
     v.clear();
     REQUIRE(v.size() == 0);

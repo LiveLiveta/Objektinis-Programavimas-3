@@ -21,7 +21,7 @@ public:
     Vektorius& operator=(const Vektorius& pagrindinis); // Copy assignment operator
     Vektorius(Vektorius&& pagrindinis) noexcept; // Move constructor
     Vektorius& operator=(Vektorius&& pagrindinis) noexcept; // Move assignment operator
-    Vektorius(ElementoTipas* first, ElementoTipas* last);
+    Vektorius(ElementoTipas* first, ElementoTipas* last); 
 
     // operators
     ElementoTipas& operator[](size_t index);
@@ -184,7 +184,7 @@ const ElementoTipas& Vektorius<ElementoTipas>::operator[](size_t index) const {
 
 template <typename ElementoTipas>
 ElementoTipas& Vektorius<ElementoTipas>::at(size_t index) {
-    if (index >= dydis) {
+    if (index >= dydis && index >= 0) {
         throw out_of_range("Index is out of range.");
     }
 
