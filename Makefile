@@ -1,17 +1,17 @@
 vektoriai: vektoriai.o funkcijos.o
-	g++ vektoriai.o funkcijos.o -o vektoriai
+	g++ vektoriai.o funkcijos.o main_res.o -o main
 	rm -f vektoriai.o funkcijos.o
 
 vektoriai_O1: vektoriai_O1.o funkcijos_O1.o
-	g++ vektoriai_O1.o funkcijos_O1.o -o vektoriai_O1
+	g++ vektoriai_O1.o funkcijos_O1.o main_res.o -o main_O1
 	rm -f vektoriai_O1.o funkcijos_O1.o
 
 vektoriai_O2: vektoriai_O2.o funkcijos_O2.o
-	g++ vektoriai_O2.o funkcijos_O2.o -o vektoriai_O2
+	g++ vektoriai_O2.o funkcijos_O2.o main_res.o -o main_O2
 	rm -f vektoriai_O2.o funkcijos_O2.o
 
 vektoriai_O3: vektoriai_O3.o funkcijos_O3.o
-	g++ vektoriai_O3.o funkcijos_O3.o -o vektoriai_O3
+	g++ vektoriai_O3.o funkcijos_O3.o main_res.o -o main_O3
 	rm -f vektoriai_O3.o funkcijos_O3.o
 
 vektoriai.o: vektoriai.cpp
